@@ -10,13 +10,14 @@ const BASE = process.argv[2] || 'http://localhost:5173/';
 const CHROME = process.env.CHROME || '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome';
 const W = 1280, H = 720, SCALE = 1.5, CLIP_MS = 9000, PORT = 9335;
 // store = ?store scene; drag = orbit px (sign = direction); zoom = wheel per step (negative = in);
-// setup = JS run before recording; ui = keep the game UI and take a still only.
+// setup = JS run before recording; ui = keep the game UI and take a still only; run = in-page promise that drives the camera instead of a drag, ms = its length.
 const SHOTS = [
   { name: 'scene-1', store: 1, drag: 70, zoom: -0.6 },
   { name: 'scene-2', store: 2, drag: -60, zoom: -0.4 },
   { name: 'scene-3', store: 3, drag: 55, zoom: -0.3 },
   { name: 'scene-4', store: 4, drag: -45, zoom: 0 },
   { name: 'scene-5', store: 5, drag: 60, zoom: -0.5 },
+  { name: 'grow', store: 'grow', run: 'storeGrow(24000)', ms: 24000 },
   { name: 'people', store: 1, ui: true, setup: `document.querySelector('[data-open="stats"]').click(); document.querySelector('[data-tab="people"]').click()` },
 ].filter((s) => process.argv.length < 4 || process.argv.slice(3).includes(s.name));
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
@@ -55,7 +56,7 @@ async function move(drag, zoom, ms) {
 try {
   await send('Page.enable');
   await send('Emulation.setDeviceMetricsOverride', { width: W, height: H, deviceScaleFactor: SCALE, mobile: false });
-  for (const { name, store, drag, zoom, setup, ui } of SHOTS) {
+  for (const { name, store, drag, zoom, setup, ui, run, ms = CLIP_MS } of SHOTS) {
     const dir = `raw/${name}`; rmSync(dir, { recursive: true, force: true }); mkdirSync(`${dir}/frames`, { recursive: true });
     await send('Page.navigate', { url: `${BASE}?store=${store}` });
     await ready();
@@ -72,7 +73,7 @@ try {
     const frames = [];
     onFrame = (p) => { const f = `${dir}/frames/${String(frames.length).padStart(5, '0')}.jpg`; writeFileSync(f, Buffer.from(p.data, 'base64')); frames.push([f, p.metadata.timestamp]); };
     await send('Page.startScreencast', { format: 'jpeg', quality: 90, maxWidth: W * SCALE, maxHeight: H * SCALE, everyNthFrame: 1 });
-    await move(drag, zoom, CLIP_MS);
+    if (run) await send('Runtime.evaluate', { expression: run, awaitPromise: true, timeout: ms + 30000 }); else await move(drag, zoom, ms);
     await send('Page.stopScreencast'); onFrame = null;
     await sleep(600);
     await still(`${dir}/end.jpg`);

@@ -16,17 +16,13 @@ webm() { # webm <out-basename> <crf> <ffmpeg input args...>
 }
 clip() { echo "-f concat -safe 0 -i raw/scene-$1/frames.txt"; }
 
-# Hero: four scenes, 5 s each, cross-faded, 30 fps. 1080p for wide screens, 720p for phones.
-X=0.6
-ff $(clip 1) $(clip 2) $(clip 5) $(clip 3) -filter_complex "
-  [0]fps=30,trim=2:7,setpts=PTS-STARTPTS[a];[1]fps=30,trim=2:7,setpts=PTS-STARTPTS[b];
-  [2]fps=30,trim=3:8,setpts=PTS-STARTPTS[c];[3]fps=30,trim=2:7,setpts=PTS-STARTPTS[d];
-  [a][b]xfade=fade:duration=$X:offset=4.4[ab];[ab][c]xfade=fade:duration=$X:offset=8.8[abc];[abc][d]xfade=fade:duration=$X:offset=13.2,format=yuv420p" \
-  -c:v libx264 -crf 12 -preset fast raw/hero.mp4
-enc hero-1080 29 -i raw/hero.mp4
-enc hero 28 -i raw/hero.mp4 -vf scale=1280:-2
-webm hero-1080 40 -i raw/hero.mp4
-webm hero 40 -i raw/hero.mp4 -vf scale=1280:-2
+# Hero: the village-to-town reel (morning growth → night), 30 fps. 1080p for wide screens, 720p for phones.
+# Constant construction churn is costly to encode; these CRFs keep it near the old 18 s montage's sizes.
+ff -f concat -safe 0 -i raw/grow/frames.txt -vf fps=30,format=yuv420p -c:v libx264 -crf 12 -preset fast raw/hero.mp4
+enc hero-1080 34 -i raw/hero.mp4
+enc hero 33 -i raw/hero.mp4 -vf scale=1280:-2
+webm hero-1080 56 -i raw/hero.mp4
+webm hero 52 -i raw/hero.mp4 -vf scale=1280:-2
 ff -i raw/hero.mp4 -frames:v 1 raw/hero.png
 cwebp -quiet -q 78 raw/hero.png -o "$OUT/hero-1920.webp"
 cwebp -quiet -q 75 -resize 1280 0 raw/hero.png -o "$OUT/hero.webp"
@@ -37,9 +33,10 @@ for n in 1 2 3 4 5; do
   ff -i "$OUT/f$n.mp4" -frames:v 1 raw/f$n.png && cwebp -quiet -q 70 raw/f$n.png -o "$OUT/f$n.webp"
 done
 
-# Gallery stills: 1280 + 640 WebP.
+# Gallery stills: 1280 + 640 WebP. g6–g8 are reel frames: the village, the grown town, the town at night.
+for t in 2 15.5 23.5; do ff -ss $t -i raw/hero.mp4 -frames:v 1 raw/hero-$t.png; done
 i=0
-for src in raw/scene-1/end.jpg raw/scene-2/start.jpg raw/scene-3/end.jpg raw/scene-4/end.jpg raw/scene-5/start.jpg "$GAME"/public/menu/1.jpg "$GAME"/public/menu/2.jpg "$GAME"/public/menu/3.jpg; do
+for src in raw/scene-1/end.jpg raw/scene-2/start.jpg raw/scene-3/end.jpg raw/scene-4/end.jpg raw/scene-5/start.jpg raw/hero-2.png raw/hero-15.5.png raw/hero-23.5.png; do
   i=$((i + 1))
   cwebp -quiet -q 72 -resize 1280 0 "$src" -o "$OUT/g$i.webp"
   cwebp -quiet -q 72 -resize 640 0 "$src" -o "$OUT/g$i-640.webp"
@@ -54,7 +51,7 @@ cwebp -quiet -q 75 -resize 1200 0 "$GAME"/store/screenshots/iphone-6.9-1.jpg -o 
 thumb() { ff -i "$1" -vf "crop=$2:$2:$3:$4,scale=96:96" raw/t$5.png && cwebp -quiet -q 80 raw/t$5.png -o "$OUT/t$5.webp"; }
 thumb raw/scene-1/start.jpg 380 820 230 1
 thumb raw/scene-2/start.jpg 380 300 330 2
-thumb raw/scene-5/start.jpg 300 60 600 3
+thumb raw/hero-23.5.png 380 700 250 3
 thumb raw/scene-3/start.jpg 380 560 420 4
 thumb raw/scene-5/start.jpg 300 1010 520 5
 thumb raw/people/start.jpg 330 450 610 6
