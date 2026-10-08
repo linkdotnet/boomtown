@@ -1,6 +1,6 @@
-// Records site footage from the game's ?store showcase: node tools/capture.mjs [gameUrl]
+// Records site footage from the game's ?store showcase: node tools/capture.mjs [gameUrl] [shot names...]
 // Needs the game's `npm run dev` running. Chrome runs headed because headless WebGL is software-rendered and stutters.
-// Writes raw/scene-N/{frames/*.jpg,frames.txt,start.jpg,end.jpg}; tools/encode.sh turns them into media/.
+// Writes raw/<name>/{frames/*.jpg,frames.txt,start.jpg,end.jpg}; tools/encode.sh turns them into media/.
 import { spawn } from 'node:child_process';
 import { writeFileSync, mkdirSync, rmSync, mkdtempSync } from 'node:fs';
 import { tmpdir } from 'node:os';
@@ -9,8 +9,16 @@ import { join } from 'node:path';
 const BASE = process.argv[2] || 'http://localhost:5173/';
 const CHROME = process.env.CHROME || '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome';
 const W = 1280, H = 720, SCALE = 1.5, CLIP_MS = 9000, PORT = 9335;
-// Per scene: orbit drag in px (sign = direction) and wheel zoom per step (negative = in).
-const SCENES = [[1, 70, -0.6], [2, -60, -0.4], [3, 55, -0.3], [4, -45, 0], [5, 60, -0.5]];
+// store = ?store scene; drag = orbit px (sign = direction); zoom = wheel per step (negative = in);
+// setup = JS run before recording; ui = keep the game UI and take a still only.
+const SHOTS = [
+  { name: 'scene-1', store: 1, drag: 70, zoom: -0.6 },
+  { name: 'scene-2', store: 2, drag: -60, zoom: -0.4 },
+  { name: 'scene-3', store: 3, drag: 55, zoom: -0.3 },
+  { name: 'scene-4', store: 4, drag: -45, zoom: 0 },
+  { name: 'scene-5', store: 5, drag: 60, zoom: -0.5 },
+  { name: 'people', store: 1, ui: true, setup: `document.querySelector('[data-open="stats"]').click(); document.querySelector('[data-tab="people"]').click()` },
+].filter((s) => process.argv.length < 4 || process.argv.slice(3).includes(s.name));
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 
 const chrome = spawn(CHROME, [`--remote-debugging-port=${PORT}`, `--window-size=${W + 40},${H + 140}`, '--no-first-run', '--no-default-browser-check',
@@ -47,14 +55,16 @@ async function move(drag, zoom, ms) {
 try {
   await send('Page.enable');
   await send('Emulation.setDeviceMetricsOverride', { width: W, height: H, deviceScaleFactor: SCALE, mobile: false });
-  for (const [n, drag, zoom] of SCENES) {
-    const dir = `raw/scene-${n}`; rmSync(dir, { recursive: true, force: true }); mkdirSync(`${dir}/frames`, { recursive: true });
-    await send('Page.navigate', { url: `${BASE}?store=${n}` });
+  for (const { name, store, drag, zoom, setup, ui } of SHOTS) {
+    const dir = `raw/${name}`; rmSync(dir, { recursive: true, force: true }); mkdirSync(`${dir}/frames`, { recursive: true });
+    await send('Page.navigate', { url: `${BASE}?store=${store}` });
     await ready();
     // ?store forces the High preset; switch to Ultra through the Settings panel like a player would (closing it applies the change).
     await evaluate(`document.querySelector('[data-modal="settings"]').click(); document.querySelector('[data-preset="ultra"]').click(); dispatchEvent(new KeyboardEvent('keydown', { key: 'Escape' }))`);
     // Applying is async (shader rebuild); fx.apply() persists the settings once it runs.
     for (let t = 0; JSON.parse(await evaluate(`localStorage.getItem('metro:gfx')`)).preset !== 'ultra'; t++) { if (t > 80) throw new Error('Ultra preset not applied'); await sleep(250); }
+    if (setup) await evaluate(setup);
+    if (ui) { await evaluate(`void document.head.appendChild(Object.assign(document.createElement('style'),{textContent:'#storecap{display:none!important}'}))`); await sleep(2500); await still(`${dir}/start.jpg`); console.log(`${dir}: still`); continue; }
     // Hide every overlay (HUD, caption, toasts) so only the 3D view remains. Time stays paused: running the sim re-rolls the staged weather.
     await evaluate(`void document.head.appendChild(Object.assign(document.createElement('style'),{textContent:'body>:not(#view){display:none!important}'}))`);
     await sleep(4000);

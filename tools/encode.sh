@@ -44,6 +44,9 @@ for src in raw/scene-1/end.jpg raw/scene-2/start.jpg raw/scene-3/end.jpg raw/sce
   cwebp -quiet -q 72 -resize 1280 0 "$src" -o "$OUT/g$i.webp"
   cwebp -quiet -q 72 -resize 640 0 "$src" -o "$OUT/g$i-640.webp"
 done
+# People tab still, cropped 16:9 around the City Hall panel.
+cwebp -quiet -q 78 -crop 240 110 1440 810 -resize 1280 0 raw/people/start.jpg -o "$OUT/people.webp"
+cwebp -quiet -q 78 -crop 240 110 1440 810 -resize 640 0 raw/people/start.jpg -o "$OUT/people-640.webp"
 cwebp -quiet -q 75 -resize 600 0 "$GAME"/store/screenshots/ipad-13-1.jpg -o "$OUT/ipad.webp"
 cwebp -quiet -q 75 -resize 1200 0 "$GAME"/store/screenshots/iphone-6.9-1.jpg -o "$OUT/iphone.webp"
 
@@ -54,6 +57,7 @@ thumb raw/scene-2/start.jpg 380 300 330 2
 thumb raw/scene-5/start.jpg 300 60 600 3
 thumb raw/scene-3/start.jpg 380 560 420 4
 thumb raw/scene-5/start.jpg 300 1010 520 5
+thumb raw/people/start.jpg 330 450 610 6
 
 # Icons, social card, fonts.
 cwebp -quiet -q 85 -resize 256 256 "$GAME"/resources/icon.png -o "$OUT/icon.webp"
