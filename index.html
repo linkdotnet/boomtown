@@ -40,7 +40,13 @@
       <a class="btn go" href="#download"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16.37 12.6c-.02-2.4 1.96-3.56 2.05-3.62-1.12-1.63-2.86-1.86-3.48-1.88-1.48-.15-2.89.87-3.64.87-.75 0-1.91-.85-3.14-.83-1.62.02-3.11.94-3.94 2.39-1.68 2.92-.43 7.24 1.21 9.61.8 1.16 1.75 2.46 3 2.41 1.2-.05 1.66-.78 3.11-.78 1.45 0 1.86.78 3.13.75 1.29-.02 2.11-1.18 2.9-2.35.91-1.34 1.29-2.64 1.31-2.71-.03-.01-2.51-.96-2.53-3.86zM13.98 5.55c.66-.8 1.11-1.92.99-3.03-.95.04-2.11.64-2.79 1.43-.61.71-1.15 1.85-1.01 2.94 1.06.08 2.15-.54 2.81-1.34z"/></svg><span><small>Download on the</small>App Store</span></a>
       <a class="btn" href="#download"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#5cc8ff" d="M4 2.6 13.6 12 4 21.4c-.3-.2-.5-.6-.5-1V3.6c0-.4.2-.8.5-1z"/><path fill="#4ade80" d="M4 2.6c.3-.2.8-.2 1.2 0l11 6.3-2.6 3.1z"/><path fill="#f87171" d="M4 21.4c.3.2.8.2 1.2 0l11-6.3-2.6-3.1z"/><path fill="#ffd166" d="m16.2 8.9 3.4 1.9c.9.5.9 1.8 0 2.3l-3.4 2-2.6-3.1z"/></svg><span><small>Get it on</small>Google Play</span></a>
     </div>
-    <ul class="chips"><li>🏘️ Zone &amp; grow</li><li>🌦️ Weather &amp; seasons</li><li>🚦 Living traffic</li><li>🌾 Farms &amp; mines</li><li>🏛️ Landmarks</li></ul>
+    <ul class="chips">
+      <li><a href="#f-build" style="--accent:var(--r)"><img src="media/t1.webp" alt="" width="32" height="32">Zone &amp; grow</a></li>
+      <li><a href="#f-seasons" style="--accent:var(--acc)"><img src="media/t2.webp" alt="" width="32" height="32">Weather &amp; seasons</a></li>
+      <li><a href="#f-data" style="--accent:var(--traffic)"><img src="media/t3.webp" alt="" width="32" height="32">Living traffic</a></li>
+      <li><a href="#f-farms" style="--accent:var(--i)"><img src="media/t4.webp" alt="" width="32" height="32">Farms &amp; mines</a></li>
+      <li><a href="#f-landmarks" style="--accent:var(--landmark)"><img src="media/t5.webp" alt="" width="32" height="32">Landmarks</a></li>
+    </ul>
   </div>
 </header>
 
@@ -51,7 +57,7 @@
 </section>
 
 <section id="features" class="wrap" style="padding-top:0">
-  <div class="feature" style="--accent:var(--r)">
+  <div class="feature" id="f-build" style="--accent:var(--r)">
     <div class="media"><video data-src="media/f1" data-poster="media/f1.webp" muted loop playsinline aria-label="Flying over a dense downtown skyline"></video></div>
     <div>
       <h3>Build a living city</h3>
@@ -63,7 +69,7 @@
       </ul>
     </div>
   </div>
-  <div class="feature" style="--accent:var(--acc)">
+  <div class="feature" id="f-seasons" style="--accent:var(--acc)">
     <div class="media"><video data-src="media/f2" data-poster="media/f2.webp" muted loop playsinline aria-label="Snow falling on suburban streets in winter"></video></div>
     <div>
       <h3>Every season matters</h3>
@@ -75,7 +81,7 @@
       </ul>
     </div>
   </div>
-  <div class="feature" style="--accent:var(--i)">
+  <div class="feature" id="f-farms" style="--accent:var(--i)">
     <div class="media"><video data-src="media/f3" data-poster="media/f3.webp" muted loop playsinline aria-label="Farm fields beside a railway on the edge of town"></video></div>
     <div>
       <h3>Farms, mines &amp; trade</h3>
@@ -87,7 +93,7 @@
       </ul>
     </div>
   </div>
-  <div class="feature" style="--accent:var(--gold)">
+  <div class="feature" id="f-data" style="--accent:var(--traffic)">
     <div class="media"><video data-src="media/f4" data-poster="media/f4.webp" muted loop playsinline aria-label="Land value data map tinting the city"></video></div>
     <div>
       <h3>See what your citizens need</h3>
@@ -99,7 +105,7 @@
       </ul>
     </div>
   </div>
-  <div class="feature" style="--accent:var(--c)">
+  <div class="feature" id="f-landmarks" style="--accent:var(--landmark)">
     <div class="media"><video data-src="media/f5" data-poster="media/f5.webp" muted loop playsinline aria-label="A Ferris wheel in a park surrounded by trees"></video></div>
     <div>
       <h3>Landmarks your city will love</h3>

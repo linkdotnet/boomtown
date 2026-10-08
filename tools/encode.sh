@@ -47,6 +47,14 @@ done
 cwebp -quiet -q 75 -resize 600 0 "$GAME"/store/screenshots/ipad-13-1.jpg -o "$OUT/ipad.webp"
 cwebp -quiet -q 75 -resize 1200 0 "$GAME"/store/screenshots/iphone-6.9-1.jpg -o "$OUT/iphone.webp"
 
+# Hero chip thumbnails: square crops (size x y) of the stills, shown at 32 px.
+thumb() { ff -i "$1" -vf "crop=$2:$2:$3:$4,scale=96:96" raw/t$5.png && cwebp -quiet -q 80 raw/t$5.png -o "$OUT/t$5.webp"; }
+thumb raw/scene-1/start.jpg 380 820 230 1
+thumb raw/scene-2/start.jpg 380 300 330 2
+thumb raw/scene-5/start.jpg 300 60 600 3
+thumb raw/scene-3/start.jpg 380 560 420 4
+thumb raw/scene-5/start.jpg 300 1010 520 5
+
 # Icons, social card, fonts.
 cwebp -quiet -q 85 -resize 256 256 "$GAME"/resources/icon.png -o "$OUT/icon.webp"
 sips -z 180 180 "$GAME"/resources/icon.png --out apple-touch-icon.png >/dev/null
