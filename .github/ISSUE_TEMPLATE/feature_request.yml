@@ -1,0 +1,35 @@
+name: Feature request
+description: An idea for a new building, mechanic or improvement.
+title: "[Idea]: "
+labels: [enhancement]
+body:
+  - type: markdown
+    attributes:
+      value: Ideas are welcome! Please check existing issues first and add a 👍 to ideas you'd like to see.
+  - type: textarea
+    id: problem
+    attributes:
+      label: What would you like to do in your city?
+      description: Describe the goal or the problem, not only the solution.
+      placeholder: I'd like my citizens to be able to fly to other cities...
+    validations:
+      required: true
+  - type: textarea
+    id: idea
+    attributes:
+      label: Your idea
+      description: How could it work in the game?
+    validations:
+      required: true
+  - type: dropdown
+    id: area
+    attributes:
+      label: Area
+      options: ["Zoning & buildings", "Roads, traffic & transit", "Power, water & waste", Services, "Economy, farms & trade", "Weather & seasons", "Landmarks & tourism", Maps, "Controls & interface", "Graphics & audio", Other]
+    validations:
+      required: true
+  - type: textarea
+    id: context
+    attributes:
+      label: Anything else?
+      description: Sketches, screenshots or games that do it well.
