@@ -49,7 +49,7 @@ nav .links a:hover { opacity: 1; }
 .hero::after { content: ''; position: absolute; inset: 0; z-index: -1; background: linear-gradient(180deg, rgba(11, 16, 24, .55) 0, rgba(11, 16, 24, 0) 22%, rgba(11, 16, 24, .15) 50%, rgba(13, 19, 28, .92) 88%, var(--bg)), radial-gradient(80% 70% at 15% 85%, rgba(11, 16, 24, .7), transparent 70%); }
 @media (max-width: 640px) { .hero video { display: none; } .hero::after { background: linear-gradient(180deg, rgba(11, 16, 24, .3), rgba(11, 16, 24, .82) 38%, var(--bg)); } }
 .hero .wrap { width: 100%; padding-bottom: clamp(40px, 9vh, 96px); padding-top: 110px; }
-.hero .icon { width: clamp(72px, 9vw, 104px); border-radius: 24%; box-shadow: 0 12px 40px rgba(0, 0, 0, .5); margin-bottom: 18px; }
+.hero .icon { width: clamp(72px, 9vw, 104px); height: auto; border-radius: 24%; box-shadow: 0 12px 40px rgba(0, 0, 0, .5); margin-bottom: 18px; }
 .hero h1 { font-size: clamp(40px, 10vw, 128px); font-weight: 800; letter-spacing: .1em; text-shadow: 0 4px 30px rgba(0, 0, 0, .55); }
 .hero .tag { font: 700 clamp(22px, 3.4vw, 38px)/1.2 Outfit, sans-serif; margin: 8px 0 14px; background: var(--sky); -webkit-background-clip: text; background-clip: text; color: transparent; filter: drop-shadow(0 2px 12px rgba(0, 0, 0, .5)); width: fit-content; }
 .hero p.lead { max-width: 560px; font-size: clamp(16px, 1.6vw, 19px); color: #dfe8f3; text-shadow: 0 1px 8px rgba(0, 0, 0, .7); margin: 0 0 26px; }
