@@ -1,7 +1,7 @@
 #!/bin/sh
 # raw/ (from tools/capture.mjs) + game assets → media/. Usage: sh tools/encode.sh [path/to/game]
 set -e
-GAME=${1:-../sim}
+GAME=${1:-../boomtown-game}
 OUT=media
 mkdir -p "$OUT" fonts
 ff() { ffmpeg -loglevel error -y "$@"; }

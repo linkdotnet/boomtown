@@ -4,8 +4,9 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Boomtown: City Builder for iPhone, iPad &amp; Android</title>
-<meta name="description" content="Build a living city. Zone neighbourhoods, raise generations of citizens, welcome tourists and keep the lights on through heat waves and blizzards. No ads, no in-app purchases, fully offline.">
+<meta name="description" content="Build a living city. Zone neighbourhoods, raise generations of citizens, welcome tourists and keep the lights on through heat waves and cold snaps. No ads, no in-app purchases, fully offline.">
 <meta name="theme-color" content="#0d131c">
+<link rel="canonical" href="https://linkdotnet.github.io/boomtown/">
 <!-- TODO: uncomment once the App Store ID exists. -->
 <!-- <meta name="apple-itunes-app" content="app-id=0000000000"> -->
 <meta property="og:type" content="website">
@@ -17,6 +18,7 @@
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 <link rel="preload" href="fonts/outfit.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/inter.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" as="image" href="media/hero.webp" imagesrcset="media/hero.webp 1280w, media/hero-1920.webp 1920w" imagesizes="100vw">
 <link rel="stylesheet" href="style.css">
 </head>
@@ -34,11 +36,11 @@
     <img class="icon" src="media/icon.webp" alt="Boomtown app icon" width="104" height="104">
     <h1>BOOMTOWN</h1>
     <p class="tag">Build a living city</p>
-    <p class="lead">Your town, your rules: zone neighbourhoods, keep the lights on through heat waves and blizzards, feed your people and watch traffic come alive.</p>
+    <p class="lead">Your town, your rules: zone neighbourhoods, keep the lights on through heat waves and cold snaps, feed your people and watch traffic come alive.</p>
     <!-- TODO: replace both store hrefs here and in #download once the listings are live. -->
     <div class="stores">
-      <a class="btn go" href="#download"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16.37 12.6c-.02-2.4 1.96-3.56 2.05-3.62-1.12-1.63-2.86-1.86-3.48-1.88-1.48-.15-2.89.87-3.64.87-.75 0-1.91-.85-3.14-.83-1.62.02-3.11.94-3.94 2.39-1.68 2.92-.43 7.24 1.21 9.61.8 1.16 1.75 2.46 3 2.41 1.2-.05 1.66-.78 3.11-.78 1.45 0 1.86.78 3.13.75 1.29-.02 2.11-1.18 2.9-2.35.91-1.34 1.29-2.64 1.31-2.71-.03-.01-2.51-.96-2.53-3.86zM13.98 5.55c.66-.8 1.11-1.92.99-3.03-.95.04-2.11.64-2.79 1.43-.61.71-1.15 1.85-1.01 2.94 1.06.08 2.15-.54 2.81-1.34z"/></svg><span><small>Download on the</small>App Store</span></a>
-      <a class="btn" href="#download"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#5cc8ff" d="M4 2.6 13.6 12 4 21.4c-.3-.2-.5-.6-.5-1V3.6c0-.4.2-.8.5-1z"/><path fill="#4ade80" d="M4 2.6c.3-.2.8-.2 1.2 0l11 6.3-2.6 3.1z"/><path fill="#f87171" d="M4 21.4c.3.2.8.2 1.2 0l11-6.3-2.6-3.1z"/><path fill="#ffd166" d="m16.2 8.9 3.4 1.9c.9.5.9 1.8 0 2.3l-3.4 2-2.6-3.1z"/></svg><span><small>Get it on</small>Google Play</span></a>
+      <a class="btn go" href="#download"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16.37 12.6c-.02-2.4 1.96-3.56 2.05-3.62-1.12-1.63-2.86-1.86-3.48-1.88-1.48-.15-2.89.87-3.64.87-.75 0-1.91-.85-3.14-.83-1.62.02-3.11.94-3.94 2.39-1.68 2.92-.43 7.24 1.21 9.61.8 1.16 1.75 2.46 3 2.41 1.2-.05 1.66-.78 3.11-.78 1.45 0 1.86.78 3.13.75 1.29-.02 2.11-1.18 2.9-2.35.91-1.34 1.29-2.64 1.31-2.71-.03-.01-2.51-.96-2.53-3.86zM13.98 5.55c.66-.8 1.11-1.92.99-3.03-.95.04-2.11.64-2.79 1.43-.61.71-1.15 1.85-1.01 2.94 1.06.08 2.15-.54 2.81-1.34z"/></svg><span><small>Coming soon</small>App Store</span></a>
+      <a class="btn" href="#download"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#5cc8ff" d="M4 2.6 13.6 12 4 21.4c-.3-.2-.5-.6-.5-1V3.6c0-.4.2-.8.5-1z"/><path fill="#4ade80" d="M4 2.6c.3-.2.8-.2 1.2 0l11 6.3-2.6 3.1z"/><path fill="#f87171" d="M4 21.4c.3.2.8.2 1.2 0l11-6.3-2.6-3.1z"/><path fill="#ffd166" d="m16.2 8.9 3.4 1.9c.9.5.9 1.8 0 2.3l-3.4 2-2.6-3.1z"/></svg><span><small>Coming soon</small>Google Play</span></a>
     </div>
     <ul class="chips">
       <li><a href="#f-build" style="--accent:var(--r)"><img src="media/t1.webp" alt="" width="32" height="32">Zone &amp; grow</a></li>
@@ -79,6 +81,7 @@
         <li>Heat waves push air-conditioning demand, cold snaps need heating.</li>
         <li>Clouds dim your solar farms, storms spin your wind turbines.</li>
         <li>Snow blankets the town in winter, trees turn gold in autumn, harvests peak in summer.</li>
+        <li>New cities follow your hemisphere's seasons with the Local calendar, on by default.</li>
       </ul>
     </div>
   </div>
@@ -100,7 +103,7 @@
       <h3>Farms, mines &amp; trade</h3>
       <p class="sub">Grow food, sell the surplus, dig for ore</p>
       <ul>
-        <li>Farms feed your people: sell the surplus or pay for imports.</li>
+        <li>Farms feed your people: sell the surplus, store part of it in a food reserve or pay for imports.</li>
         <li>Mines dig ore from the mountains until the vein runs dry.</li>
         <li>High-tech industry moves in once your city is well educated.</li>
       </ul>
@@ -136,7 +139,7 @@
   <div class="kicker">And so much more</div>
   <h2>Deep when you want it</h2>
   <div class="more">
-    <div style="--accent:var(--traffic)"><b>Traffic &amp; transit</b><p>Every car picks its own route. Run bus, tram and train lines, pedestrianise streets and open an airport.</p></div>
+    <div style="--accent:var(--traffic)"><b>Traffic &amp; transit</b><p>Every car picks its own route. Car-free households walk or ride transit. Run bus, tram and train lines, pedestrianise streets and open an airport.</p></div>
     <div style="--accent:var(--gold)"><b>Policies &amp; budget</b><p>Set taxes per zone, fund each department, take out loans and choose from 14 policies.</p></div>
     <div style="--accent:var(--landmark)"><b>Research &amp; grand projects</b><p>17 technologies, from trams to nuclear power, and wonders like the World Expo and the Space Center.</p></div>
     <div style="--accent:var(--i)"><b>Fires, storms &amp; protests</b><p>Fires spread from house to house, storms damage buildings and unhappy residents take to the streets.</p></div>
@@ -149,8 +152,9 @@
 
 <section class="wrap" style="text-align:center">
   <div class="kicker">Made for touch</div>
-  <h2>Built for iPhone and iPad</h2>
-  <p class="muted" style="max-width:620px;margin:16px auto 0">Place, preview, confirm. Hold any button to learn what it does, undo your last moves, and switch on left-handed mode or larger text.</p>
+  <h2>Built for iPhone, iPad and Android</h2>
+  <p class="muted" style="max-width:620px;margin:16px auto 0">Place, preview, confirm. Hold any button to learn what it does, undo your last moves, and switch on left-handed mode or a larger interface (UI size).</p>
+  <p class="muted" style="max-width:620px;margin:12px auto 0">iPhone and Android play in landscape. iPad also supports portrait.</p>
   <div class="devices">
     <img class="phone" src="media/iphone.webp" alt="Boomtown on iPhone: the zoning menu over a growing city" width="1200" height="552" loading="lazy">
     <img class="tablet" src="media/ipad.webp" alt="Boomtown on iPad" width="600" height="800" loading="lazy">
@@ -189,8 +193,8 @@
   <h2>Your town is waiting</h2>
   <p class="muted">Coming to the App Store and Google Play.</p>
   <div class="stores">
-    <a class="btn go" href="#download"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16.37 12.6c-.02-2.4 1.96-3.56 2.05-3.62-1.12-1.63-2.86-1.86-3.48-1.88-1.48-.15-2.89.87-3.64.87-.75 0-1.91-.85-3.14-.83-1.62.02-3.11.94-3.94 2.39-1.68 2.92-.43 7.24 1.21 9.61.8 1.16 1.75 2.46 3 2.41 1.2-.05 1.66-.78 3.11-.78 1.45 0 1.86.78 3.13.75 1.29-.02 2.11-1.18 2.9-2.35.91-1.34 1.29-2.64 1.31-2.71-.03-.01-2.51-.96-2.53-3.86zM13.98 5.55c.66-.8 1.11-1.92.99-3.03-.95.04-2.11.64-2.79 1.43-.61.71-1.15 1.85-1.01 2.94 1.06.08 2.15-.54 2.81-1.34z"/></svg><span><small>Download on the</small>App Store</span></a>
-    <a class="btn" href="#download"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#5cc8ff" d="M4 2.6 13.6 12 4 21.4c-.3-.2-.5-.6-.5-1V3.6c0-.4.2-.8.5-1z"/><path fill="#4ade80" d="M4 2.6c.3-.2.8-.2 1.2 0l11 6.3-2.6 3.1z"/><path fill="#f87171" d="M4 21.4c.3.2.8.2 1.2 0l11-6.3-2.6-3.1z"/><path fill="#ffd166" d="m16.2 8.9 3.4 1.9c.9.5.9 1.8 0 2.3l-3.4 2-2.6-3.1z"/></svg><span><small>Get it on</small>Google Play</span></a>
+    <a class="btn go" href="#download"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16.37 12.6c-.02-2.4 1.96-3.56 2.05-3.62-1.12-1.63-2.86-1.86-3.48-1.88-1.48-.15-2.89.87-3.64.87-.75 0-1.91-.85-3.14-.83-1.62.02-3.11.94-3.94 2.39-1.68 2.92-.43 7.24 1.21 9.61.8 1.16 1.75 2.46 3 2.41 1.2-.05 1.66-.78 3.11-.78 1.45 0 1.86.78 3.13.75 1.29-.02 2.11-1.18 2.9-2.35.91-1.34 1.29-2.64 1.31-2.71-.03-.01-2.51-.96-2.53-3.86zM13.98 5.55c.66-.8 1.11-1.92.99-3.03-.95.04-2.11.64-2.79 1.43-.61.71-1.15 1.85-1.01 2.94 1.06.08 2.15-.54 2.81-1.34z"/></svg><span><small>Coming soon</small>App Store</span></a>
+    <a class="btn" href="#download"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#5cc8ff" d="M4 2.6 13.6 12 4 21.4c-.3-.2-.5-.6-.5-1V3.6c0-.4.2-.8.5-1z"/><path fill="#4ade80" d="M4 2.6c.3-.2.8-.2 1.2 0l11 6.3-2.6 3.1z"/><path fill="#f87171" d="M4 21.4c.3.2.8.2 1.2 0l11-6.3-2.6-3.1z"/><path fill="#ffd166" d="m16.2 8.9 3.4 1.9c.9.5.9 1.8 0 2.3l-3.4 2-2.6-3.1z"/></svg><span><small>Coming soon</small>Google Play</span></a>
   </div>
 </section>
 
