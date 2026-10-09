@@ -1,6 +1,7 @@
 #!/bin/sh
-# raw/ (from tools/capture.mjs) + game assets → media/. Usage: sh tools/encode.sh [path/to/game]
+# raw/ (from tools/capture.mjs) + game assets → media/. Usage: POSTER=<frame index> sh tools/encode.sh [path/to/game]
 set -e
+: "${POSTER:?set POSTER to the poster frame index}"
 GAME=${1:-../boomtown-game}
 OUT=media
 mkdir -p "$OUT" fonts
@@ -10,22 +11,25 @@ enc() { # enc <out-basename> <crf> <ffmpeg input args...>
   ff "$@" -an -c:v libx264 -crf "$crf" -preset veryslow -profile:v high -pix_fmt yuv420p -movflags +faststart "$OUT/$name.mp4"
 }
 # AV1 WebM is ~25% smaller at equal SSIM on the hero; on the small loops it isn't, so they stay MP4-only.
-webm() { # webm <out-basename> <crf> <ffmpeg input args...>
-  name=$1 crf=$2; shift 2
-  ff "$@" -an -c:v libsvtav1 -crf "$crf" -preset 6 -pix_fmt yuv420p "$OUT/$name.webm"
+webm() { # webm <out-basename> <bitrate> <ffmpeg input args...>
+  name=$1 rate=$2; shift 2
+  ff "$@" -an -c:v libsvtav1 -b:v "$rate" -preset 6 -pix_fmt yuv420p "$OUT/$name.webm"
 }
 clip() { echo "-f concat -safe 0 -i raw/scene-$1/frames.txt"; }
 
-# Hero: the village-to-town reel (morning growth → night), 30 fps. 1080p for wide screens, 720p for phones.
-# Constant construction churn is costly to encode; these CRFs keep it near the old 18 s montage's sizes.
-ff -f concat -safe 0 -i raw/grow/frames.txt -vf fps=30,format=yuv420p -c:v libx264 -crf 12 -preset fast raw/hero.mp4
-enc hero-1080 34 -i raw/hero.mp4
-enc hero 33 -i raw/hero.mp4 -vf scale=1280:-2
-webm hero-1080 56 -i raw/hero.mp4
-webm hero 52 -i raw/hero.mp4 -vf scale=1280:-2
-ff -i raw/hero.mp4 -frames:v 1 raw/hero.png
+# Hero: the street tour (?store=tour, 30 fps PNGs from capture.mjs). Desktop 1080p: H.264 capped at 6 Mbps, AV1 ~5 Mbps. Phones 720p: H.264 capped at 1.5 Mbps, AV1 ~1.3 Mbps.
+# CRF with a maxrate cap: flat farmland stays small, the dense city keeps its detail. POSTER is the frame shown before playback.
+FRAMES=${FRAMES:-raw/tour/frames}
+# VMAF on the 1080p reel: H.264 4 Mbps 89.7 (5: 91.1, 6: 92.1), AV1 3 Mbps 91.0; past ~90 extra bitrate buys little.
+enc hero-1080 22 -framerate 30 -i "$FRAMES/%05d.png" -maxrate 4.5M -bufsize 9M
+enc hero 27 -framerate 30 -i "$FRAMES/%05d.png" -vf scale=1280:-2 -maxrate 1.5M -bufsize 3M
+webm hero-1080 3M -framerate 30 -i "$FRAMES/%05d.png"
+webm hero 1.3M -framerate 30 -i "$FRAMES/%05d.png" -vf scale=1280:-2
+ff -framerate 30 -start_number "$POSTER" -i "$FRAMES/%05d.png" -frames:v 1 raw/hero.png
 cwebp -quiet -q 78 raw/hero.png -o "$OUT/hero-1920.webp"
 cwebp -quiet -q 75 -resize 1280 0 raw/hero.png -o "$OUT/hero.webp"
+# Gallery stills g6–g8 and thumb t3 come from the village-to-town growth reel (morning → night), not the hero.
+ff -f concat -safe 0 -i raw/grow/frames.txt -vf fps=30,format=yuv420p -c:v libx264 -crf 12 -preset fast raw/grow.mp4
 
 # Feature loops: 4 s forward then reversed, so they loop seamlessly. 640×360.
 for n in 1 2 3 4 5; do
@@ -34,9 +38,9 @@ for n in 1 2 3 4 5; do
 done
 
 # Gallery stills: 1280 + 640 WebP. g6–g8 are reel frames: the village, the grown town, the town at night.
-for t in 2 15.5 23.5; do ff -ss $t -i raw/hero.mp4 -frames:v 1 raw/hero-$t.png; done
+for t in 2 15.5 23.5; do ff -ss $t -i raw/grow.mp4 -frames:v 1 raw/grow-$t.png; done
 i=0
-for src in raw/scene-1/end.jpg raw/scene-2/start.jpg raw/scene-3/end.jpg raw/scene-4/end.jpg raw/scene-5/start.jpg raw/hero-2.png raw/hero-15.5.png raw/hero-23.5.png; do
+for src in raw/scene-1/end.jpg raw/scene-2/start.jpg raw/scene-3/end.jpg raw/scene-4/end.jpg raw/scene-5/start.jpg raw/grow-2.png raw/grow-15.5.png raw/grow-23.5.png; do
   i=$((i + 1))
   cwebp -quiet -q 72 -resize 1280 0 "$src" -o "$OUT/g$i.webp"
   cwebp -quiet -q 72 -resize 640 0 "$src" -o "$OUT/g$i-640.webp"
@@ -51,7 +55,7 @@ cwebp -quiet -q 75 -resize 1200 0 "$GAME"/store/screenshots/iphone-6.9-1.jpg -o 
 thumb() { ff -i "$1" -vf "crop=$2:$2:$3:$4,scale=96:96" raw/t$5.png && cwebp -quiet -q 80 raw/t$5.png -o "$OUT/t$5.webp"; }
 thumb raw/scene-1/start.jpg 380 820 230 1
 thumb raw/scene-2/start.jpg 380 300 330 2
-thumb raw/hero-23.5.png 380 700 250 3
+thumb raw/grow-23.5.png 380 700 250 3
 thumb raw/scene-3/start.jpg 380 560 420 4
 thumb raw/scene-5/start.jpg 300 1010 520 5
 thumb raw/people/start.jpg 330 450 610 6

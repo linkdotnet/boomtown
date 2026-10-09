@@ -1,5 +1,6 @@
 // Records site footage from the game's ?store showcase: node tools/capture.mjs [gameUrl] [shot names...]
-// Needs the game's `npm run dev` running. Chrome runs headed because headless WebGL is software-rendered and stutters.
+// Tour: node tools/capture.mjs [gameUrl] tour [1920x1080] [2560x1440] renders ?store=tour frame by frame (window.storeTour(s)) into raw/tour[-<width>]/frames/%05d.png.
+// Needs the game's `npm run dev` running. Chrome runs headed because headless WebGL is software-rendered and stutters; the tour needs its real GPU for WebGPU.
 // Writes raw/<name>/{frames/*.jpg,frames.txt,start.jpg,end.jpg}; tools/encode.sh turns them into media/.
 import { spawn } from 'node:child_process';
 import { writeFileSync, mkdirSync, rmSync, mkdtempSync } from 'node:fs';
@@ -9,6 +10,10 @@ import { join } from 'node:path';
 const BASE = process.argv[2] || 'http://localhost:5173/';
 const CHROME = process.env.CHROME || '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome';
 const W = 1280, H = 720, SCALE = 1.5, CLIP_MS = 9000, PORT = 9335;
+const TOUR = process.argv.includes('tour');
+const TOUR_SIZES = process.argv.slice(3).filter((a) => /^\d+x\d+$/.test(a)).map((a) => a.split('x').map(Number));
+const sizes = TOUR_SIZES.length ? TOUR_SIZES : [[1920, 1080]];
+const [WIN_W, WIN_H] = TOUR ? [Math.max(...sizes.map((s) => s[0])), Math.max(...sizes.map((s) => s[1]))] : [W, H];
 // store = ?store scene; drag = orbit px (sign = direction); zoom = wheel per step (negative = in);
 // setup = JS run before recording; ui = keep the game UI and take a still only; run = in-page promise that drives the camera instead of a drag, ms = its length.
 const SHOTS = [
@@ -22,7 +27,7 @@ const SHOTS = [
 ].filter((s) => process.argv.length < 4 || process.argv.slice(3).includes(s.name));
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 
-const chrome = spawn(CHROME, [`--remote-debugging-port=${PORT}`, `--window-size=${W + 40},${H + 140}`, '--no-first-run', '--no-default-browser-check',
+const chrome = spawn(CHROME, [`--remote-debugging-port=${PORT}`, `--window-size=${WIN_W + 40},${WIN_H + 140}`, '--no-first-run', '--no-default-browser-check', '--enable-unsafe-webgpu',
   '--disable-background-timer-throttling', '--disable-renderer-backgrounding', '--disable-backgrounding-occluded-windows',
   `--user-data-dir=${mkdtempSync(join(tmpdir(), 'boomtown-site-'))}`, 'about:blank'], { stdio: 'ignore' });
 let tabs = [];
@@ -40,6 +45,28 @@ const evaluate = async (expression) => (await send('Runtime.evaluate', { express
 const ready = async () => { for (let t = 0; t < 600; t++) { if (await evaluate('!!window.storeReady')) return; await sleep(250); } throw new Error('scene never became ready'); };
 const still = async (file) => writeFileSync(file, Buffer.from((await send('Page.captureScreenshot', { format: 'jpeg', quality: 92 })).data, 'base64'));
 const mouse = (type, x, y, extra = {}) => send('Input.dispatchMouseEvent', { type, x, y, ...extra });
+// ?store forces the High preset; switch to Ultra through the Settings panel like a player would (closing it applies the change).
+const ultra = async () => {
+  await evaluate(`document.querySelector('[data-modal="settings"]').click(); document.querySelector('[data-preset="ultra"]').click(); dispatchEvent(new KeyboardEvent('keydown', { key: 'Escape' }))`);
+  // Applying is async (shader rebuild); fx.apply() persists the settings once it runs.
+  for (let t = 0; JSON.parse(await evaluate(`localStorage.getItem('metro:gfx')`)).preset !== 'ultra'; t++) { if (t > 80) throw new Error('Ultra preset not applied'); await sleep(250); }
+};
+// Hide every overlay (HUD, caption, toasts) so only the 3D view remains. Time stays paused: running the sim re-rolls the staged weather.
+const hideUi = () => evaluate(`void document.head.appendChild(Object.assign(document.createElement('style'),{textContent:'body>:not(#view){display:none!important}'}))`);
+// Frame-stepped: every frame is rendered on demand, so the encode gets exact 30 fps timing whatever the GPU's speed.
+const TOUR_FPS = 30, TOUR_SECONDS = 50; // TOUR_LEN in the game's src/demo.js
+async function tour([w, h]) {
+  const dir = `raw/tour${w === 1920 ? '' : `-${w}`}/frames`; rmSync(dir, { recursive: true, force: true }); mkdirSync(dir, { recursive: true });
+  await send('Emulation.setDeviceMetricsOverride', { width: w, height: h, deviceScaleFactor: 1, mobile: false });
+  await send('Page.navigate', { url: `${BASE}?store=tour` });
+  await ready(); await ultra(); await hideUi(); await sleep(4000);
+  const frames = TOUR_SECONDS * TOUR_FPS;
+  for (let i = 0; i < frames; i++) {
+    await send('Runtime.evaluate', { expression: `window.storeTour(${i / TOUR_FPS}); dispatchEvent(new PointerEvent('pointermove')); new Promise((r) => requestAnimationFrame(() => requestAnimationFrame(r)))`, awaitPromise: true });
+    writeFileSync(`${dir}/${String(i).padStart(5, '0')}.png`, Buffer.from((await send('Page.captureScreenshot', { format: 'png' })).data, 'base64'));
+  }
+  console.log(`${dir}: ${frames} frames at ${TOUR_FPS} fps`);
+}
 
 // Slow right-drag orbit (MapControls damping smooths it) plus a gentle wheel dolly.
 async function move(drag, zoom, ms) {
@@ -56,18 +83,15 @@ async function move(drag, zoom, ms) {
 try {
   await send('Page.enable');
   await send('Emulation.setDeviceMetricsOverride', { width: W, height: H, deviceScaleFactor: SCALE, mobile: false });
-  for (const { name, store, drag, zoom, setup, ui, run, ms = CLIP_MS } of SHOTS) {
+  if (TOUR) for (const size of sizes) await tour(size);
+  else for (const { name, store, drag, zoom, setup, ui, run, ms = CLIP_MS } of SHOTS) {
     const dir = `raw/${name}`; rmSync(dir, { recursive: true, force: true }); mkdirSync(`${dir}/frames`, { recursive: true });
     await send('Page.navigate', { url: `${BASE}?store=${store}` });
     await ready();
-    // ?store forces the High preset; switch to Ultra through the Settings panel like a player would (closing it applies the change).
-    await evaluate(`document.querySelector('[data-modal="settings"]').click(); document.querySelector('[data-preset="ultra"]').click(); dispatchEvent(new KeyboardEvent('keydown', { key: 'Escape' }))`);
-    // Applying is async (shader rebuild); fx.apply() persists the settings once it runs.
-    for (let t = 0; JSON.parse(await evaluate(`localStorage.getItem('metro:gfx')`)).preset !== 'ultra'; t++) { if (t > 80) throw new Error('Ultra preset not applied'); await sleep(250); }
+    await ultra();
     if (setup) await evaluate(setup);
     if (ui) { await evaluate(`void document.head.appendChild(Object.assign(document.createElement('style'),{textContent:'#storecap{display:none!important}'}))`); await sleep(2500); await still(`${dir}/start.jpg`); console.log(`${dir}: still`); continue; }
-    // Hide every overlay (HUD, caption, toasts) so only the 3D view remains. Time stays paused: running the sim re-rolls the staged weather.
-    await evaluate(`void document.head.appendChild(Object.assign(document.createElement('style'),{textContent:'body>:not(#view){display:none!important}'}))`);
+    await hideUi();
     await sleep(4000);
     await still(`${dir}/start.jpg`);
     const frames = [];
