@@ -9,7 +9,7 @@ import { join } from 'node:path';
 
 const BASE = process.argv[2] || 'http://localhost:5173/';
 const CHROME = process.env.CHROME || '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome';
-const W = 1280, H = 720, SCALE = 1.5, CLIP_MS = 9000, PORT = 9335;
+const W = 1280, H = 720, SCALE = 1.5, CLIP_MS = 9000, PORT = +(process.env.CDP_PORT || 9335);
 const TOUR = process.argv.includes('tour');
 const TOUR_SIZES = process.argv.slice(3).filter((a) => /^\d+x\d+$/.test(a)).map((a) => a.split('x').map(Number));
 const sizes = TOUR_SIZES.length ? TOUR_SIZES : [[1920, 1080]];
