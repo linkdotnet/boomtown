@@ -54,7 +54,7 @@ const ultra = async () => {
 // Hide every overlay (HUD, caption, toasts) so only the 3D view remains. Time stays paused: running the sim re-rolls the staged weather.
 const hideUi = () => evaluate(`void document.head.appendChild(Object.assign(document.createElement('style'),{textContent:'body>:not(#view){display:none!important}'}))`);
 // Frame-stepped: every frame is rendered on demand, so the encode gets exact 30 fps timing whatever the GPU's speed.
-const TOUR_FPS = 30, TOUR_SECONDS = 50; // TOUR_LEN in the game's src/demo.js
+const TOUR_FPS = 30, TOUR_SECONDS = 64; // TOUR_LEN in the game's src/demo.js
 async function tour([w, h]) {
   const dir = `raw/tour${w === 1920 ? '' : `-${w}`}/frames`; rmSync(dir, { recursive: true, force: true }); mkdirSync(dir, { recursive: true });
   await send('Emulation.setDeviceMetricsOverride', { width: w, height: h, deviceScaleFactor: 1, mobile: false });

@@ -17,14 +17,14 @@ webm() { # webm <out-basename> <bitrate> <ffmpeg input args...>
 }
 clip() { echo "-f concat -safe 0 -i raw/scene-$1/frames.txt"; }
 
-# Hero: the street tour (?store=tour, 30 fps PNGs from capture.mjs). Desktop 1080p: H.264 capped at 6 Mbps, AV1 ~5 Mbps. Phones 720p: H.264 capped at 1.5 Mbps, AV1 ~1.3 Mbps.
+# Hero: the street tour (?store=tour, 30 fps PNGs from capture.mjs). Desktop 1080p: H.264 capped at 4 Mbps, AV1 ~3 Mbps. Phones 720p: H.264 capped at 3 Mbps, AV1 ~2.5 Mbps (1.5 Mbps went blocky in the dense downtown).
 # CRF with a maxrate cap: flat farmland stays small, the dense city keeps its detail. POSTER is the frame shown before playback.
 FRAMES=${FRAMES:-raw/tour/frames}
 # VMAF on the 1080p reel: H.264 4 Mbps 89.7 (5: 91.1, 6: 92.1), AV1 3 Mbps 91.0; past ~90 extra bitrate buys little.
-enc hero-1080 22 -framerate 30 -i "$FRAMES/%05d.png" -maxrate 4.5M -bufsize 9M
-enc hero 27 -framerate 30 -i "$FRAMES/%05d.png" -vf scale=1280:-2 -maxrate 1.5M -bufsize 3M
+enc hero-1080 22 -framerate 30 -i "$FRAMES/%05d.png" -maxrate 4M -bufsize 8M
+enc hero 24 -framerate 30 -i "$FRAMES/%05d.png" -vf scale=1280:-2 -maxrate 3M -bufsize 6M
 webm hero-1080 3M -framerate 30 -i "$FRAMES/%05d.png"
-webm hero 1.3M -framerate 30 -i "$FRAMES/%05d.png" -vf scale=1280:-2
+webm hero 2.5M -framerate 30 -i "$FRAMES/%05d.png" -vf scale=1280:-2
 ff -framerate 30 -start_number "$POSTER" -i "$FRAMES/%05d.png" -frames:v 1 raw/hero.png
 cwebp -quiet -q 78 raw/hero.png -o "$OUT/hero-1920.webp"
 cwebp -quiet -q 75 -resize 1280 0 raw/hero.png -o "$OUT/hero.webp"
