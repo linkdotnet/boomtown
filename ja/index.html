@@ -1,0 +1,283 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Boomtown：iPhone・iPad・Android対応の街づくりシミュレーション</title>
+<meta name="description" content="街づくりシミュレーション。生きた街を作りましょう。地区を区画し、何世代にもわたる市民を育て、観光客をお迎えします。猛暑や寒波の中でも明かりを絶やしません。広告なし、アプリ内課金なし、完全オフラインでプレイできます。">
+<meta name="theme-color" content="#0d131c">
+<link rel="canonical" href="https://boomtown.info/ja/">
+<!-- TODO: uncomment once the App Store ID exists. -->
+<!-- <meta name="apple-itunes-app" content="app-id=0000000000"> -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Boomtown：街づくりシミュレーション">
+<meta property="og:description" content="ひとすじの土ぼこりの道を、活気あふれる大都市へ。くつろげて奥深いシティビルダーです。iPhone、iPad、Androidに対応。">
+<meta property="og:url" content="https://boomtown.info/ja/">
+<meta property="og:image" content="https://boomtown.info/media/og.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../apple-touch-icon.png">
+<link rel="preload" href="../fonts/outfit.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="../fonts/inter.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" as="image" href="../media/hero.webp" imagesrcset="../media/hero.webp 1280w, ../media/hero-1920.webp 1920w" imagesizes="100vw">
+<link rel="stylesheet" href="../style.css">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"VideoGame","name":"Boomtown","url":"https://boomtown.info/ja/","image":"https://boomtown.info/media/og.jpg","description":"街づくりシミュレーション。生きた街を作りましょう。地区を区画し、何世代にもわたる市民を育て、観光客をお迎えします。猛暑や寒波の中でも明かりを絶やしません。広告なし、アプリ内課金なし、完全オフラインでプレイできます。","inLanguage":"ja","genre":["街づくりシミュレーション","シミュレーション","ストラテジー"],"applicationCategory":"GameApplication","gamePlatform":["iOS","iPadOS","Android"],"operatingSystem":["iOS","iPadOS","Android"],"author":{"@type":"Organization","name":"BitSpire GmbH","url":"https://bitspire.ch"},"publisher":{"@type":"Organization","name":"BitSpire GmbH","url":"https://bitspire.ch"},"offers":{"@type":"Offer","price":"4.99","priceCurrency":"USD"}}</script>
+
+<link rel="alternate" hreflang="en" href="https://boomtown.info/">
+<link rel="alternate" hreflang="de" href="https://boomtown.info/de/">
+<link rel="alternate" hreflang="fr" href="https://boomtown.info/fr/">
+<link rel="alternate" hreflang="it" href="https://boomtown.info/it/">
+<link rel="alternate" hreflang="es" href="https://boomtown.info/es/">
+<link rel="alternate" hreflang="ja" href="https://boomtown.info/ja/">
+<link rel="alternate" hreflang="zh-Hans" href="https://boomtown.info/zh-Hans/">
+<link rel="alternate" hreflang="x-default" href="https://boomtown.info/">
+</head>
+<body>
+
+<nav>
+  <a class="brand" href="./"><img src="../media/icon.webp" alt="" width="34" height="34">BOOMTOWN</a>
+  <div class="links"><a href="#features">機能</a><a href="#gallery">ギャラリー</a><a href="#maps">マップ</a><a href="support.html">サポート</a></div>
+  <label class="langs"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.3" aria-hidden="true"><circle cx="8" cy="8" r="6.5"/><path d="M1.5 8h13M8 1.5c-2.2 2-2.2 11.5 0 13M8 1.5c2.2 2 2.2 11.5 0 13"/></svg><select aria-label="Language" onchange="try{localStorage.setItem('lang',this.options[this.selectedIndex].lang)}catch(e){}location.href=this.value"><option value="../" lang="en">English</option><option value="../de/" lang="de">Deutsch</option><option value="../fr/" lang="fr">Français</option><option value="../it/" lang="it">Italiano</option><option value="../es/" lang="es">Español</option><option value="./" lang="ja" selected>日本語</option><option value="../zh-Hans/" lang="zh-Hans">简体中文</option></select></label>
+</nav>
+
+<header class="hero">
+  <img class="poster" src="../media/hero.webp" srcset="../media/hero.webp 1280w, ../media/hero-1920.webp 1920w" sizes="100vw" alt="" width="1280" height="720" fetchpriority="high">
+  <video data-src="../media/hero" data-hd="../media/hero-1080" data-webm muted loop playsinline aria-hidden="true"></video>
+  <div class="wrap">
+    <img class="icon" src="../media/icon.webp" alt="Boomtownアプリのアイコン" width="104" height="104">
+    <h1>BOOMTOWN</h1>
+    <p class="tag">生きた街を作りましょう</p>
+    <p class="lead">あなたの街、あなたのルール。地区を区画し、猛暑や寒波の中でも明かりを保ち、住民に食料を届け、交通が動き出す様子を眺めましょう。</p>
+    <!-- TODO: replace both store hrefs here and in #download once the listings are live. -->
+    <div class="stores">
+      <a class="btn go" href="#download"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16.37 12.6c-.02-2.4 1.96-3.56 2.05-3.62-1.12-1.63-2.86-1.86-3.48-1.88-1.48-.15-2.89.87-3.64.87-.75 0-1.91-.85-3.14-.83-1.62.02-3.11.94-3.94 2.39-1.68 2.92-.43 7.24 1.21 9.61.8 1.16 1.75 2.46 3 2.41 1.2-.05 1.66-.78 3.11-.78 1.45 0 1.86.78 3.13.75 1.29-.02 2.11-1.18 2.9-2.35.91-1.34 1.29-2.64 1.31-2.71-.03-.01-2.51-.96-2.53-3.86zM13.98 5.55c.66-.8 1.11-1.92.99-3.03-.95.04-2.11.64-2.79 1.43-.61.71-1.15 1.85-1.01 2.94 1.06.08 2.15-.54 2.81-1.34z"/></svg><span><small>近日公開</small>App Store</span></a>
+      <a class="btn" href="#download"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#5cc8ff" d="M4 2.6 13.6 12 4 21.4c-.3-.2-.5-.6-.5-1V3.6c0-.4.2-.8.5-1z"/><path fill="#4ade80" d="M4 2.6c.3-.2.8-.2 1.2 0l11 6.3-2.6 3.1z"/><path fill="#f87171" d="M4 21.4c.3.2.8.2 1.2 0l11-6.3-2.6-3.1z"/><path fill="#ffd166" d="m16.2 8.9 3.4 1.9c.9.5.9 1.8 0 2.3l-3.4 2-2.6-3.1z"/></svg><span><small>近日公開</small>Google Play</span></a>
+    </div>
+    <ul class="chips">
+      <li><a href="#f-build" style="--accent:var(--r)"><img src="../media/t1.webp" alt="" width="32" height="32">区画して発展</a></li>
+      <li><a href="#f-seasons" style="--accent:var(--acc)"><img src="../media/t2.webp" alt="" width="32" height="32">天候と季節</a></li>
+      <li><a href="#f-generations" style="--accent:var(--people)"><img src="../media/t6.webp" alt="" width="32" height="32">世代</a></li>
+      <li><a href="#f-data" style="--accent:var(--traffic)"><img src="../media/t3.webp" alt="" width="32" height="32">生きた交通</a></li>
+      <li><a href="#f-farms" style="--accent:var(--i)"><img src="../media/t4.webp" alt="" width="32" height="32">農場と鉱山</a></li>
+      <li><a href="#f-tourism" style="--accent:var(--landmark)"><img src="../media/t5.webp" alt="" width="32" height="32">観光</a></li>
+    </ul>
+  </div>
+</header>
+
+<section class="wrap intro">
+  <div class="kicker">街づくりシミュレーション · iPhone · iPad · Android</div>
+  <h2>ひとすじの土ぼこりの道を、活気あふれる大都市へ。</h2>
+  <p>Boomtownはくつろげて奥深いシティビルダーです。住宅、店舗、工場を配置し、電気と水道をつなぎ、市民が引っ越し、家族を育て、通勤し、何を考えているかを教えてくれる様子を見守りましょう。</p>
+</section>
+
+<section id="features" class="wrap" style="padding-top:0">
+  <div class="feature" id="f-build" style="--accent:var(--r)">
+    <div class="media"><video data-src="../media/f1" data-poster="../media/f1.webp" muted loop playsinline aria-label="密集した都心のスカイラインの上空を飛行"></video></div>
+    <div>
+      <h3>生きた街を作りましょう</h3>
+      <p class="sub">区画し、電力を通し、成長を見届けよう</p>
+      <ul>
+        <li>どの車にも行き先があります。通勤者はルートを選び、ラッシュ時には渋滞が起きます。道路を整備したり、バスや電車の路線を増やしたりして解消しましょう。</li>
+        <li>住宅・商業・工業の各ゾーンを、標準・郊外・旧市街のスタイルで配置できます。</li>
+        <li>集落から村、町、市、そして巨大都市まで成長させましょう。</li>
+      </ul>
+    </div>
+  </div>
+  <div class="feature" id="f-seasons" style="--accent:var(--acc)">
+    <div class="media"><video data-src="../media/f2" data-poster="../media/f2.webp" muted loop playsinline aria-label="冬、郊外の通りに降る雪"></video></div>
+    <div>
+      <h3>季節がすべてを左右する</h3>
+      <p class="sub">雪、猛暑、嵐が街の運営を変える</p>
+      <ul>
+        <li>猛暑は冷房の需要を押し上げ、寒波には暖房が必要です。</li>
+        <li>雲は太陽光発電所の発電量を減らし、嵐は風力タービンを回します。</li>
+        <li>冬は雪が街を覆い、秋は木々が金色に染まり、夏には収穫がピークを迎えます。</li>
+        <li>新しい街は「ローカル」カレンダーでお住まいの半球の季節に合わせます（初期設定でオン）。</li>
+      </ul>
+    </div>
+  </div>
+  <div class="feature" id="f-generations" style="--accent:var(--people)">
+    <div class="media"><img src="../media/people-640.webp" srcset="../media/people-640.webp 640w, ../media/people.webp 1280w" sizes="(max-width: 820px) 100vw, 640px" alt="City Hall People tab with age pyramid, life expectancy and births and deaths" width="640" height="360" loading="lazy"></div>
+    <div>
+      <h3>成長していく世代</h3>
+      <p class="sub">住民は生まれ、年を重ね、次の世代へ受け継がれる</p>
+      <ul>
+        <li>どの家にも子ども、親、祖父母がいて、年を重ねていきます。若者は独立して新しい世帯を築きます。</li>
+        <li>保育園は出生率を、医師は平均寿命を押し上げます。学校は生徒で埋まったり空いたりし、墓地は少しずつ空きがなくなっていきます。</li>
+        <li>定年や育児休暇を設定すると、10年後には人口ピラミッドの形が変わっていきます。</li>
+      </ul>
+    </div>
+  </div>
+  <div class="feature" id="f-farms" style="--accent:var(--i)">
+    <div class="media"><video data-src="../media/f3" data-poster="../media/f3.webp" muted loop playsinline aria-label="町外れで線路沿いに広がる農地"></video></div>
+    <div>
+      <h3>農場・鉱山・交易</h3>
+      <p class="sub">食料を育て、余剰を売り、鉱石を掘ろう</p>
+      <ul>
+        <li>農場は住民を養います。余剰は売るか、一部を食料備蓄に回すか、輸入の支払いに充てましょう。</li>
+        <li>山から鉱石を掘り出します。鉱脈が尽きるまで。</li>
+        <li>市民の教育水準が高まると、ハイテク産業が進出します。</li>
+      </ul>
+    </div>
+  </div>
+  <div class="feature" id="f-data" style="--accent:var(--traffic)">
+    <div class="media"><video data-src="../media/f4" data-poster="../media/f4.webp" muted loop playsinline aria-label="都市を色づける地価データマップ"></video></div>
+    <div>
+      <h3>住民が求めるものを把握しよう</h3>
+      <p class="sub">データマップで交通、汚染、地価が一目でわかる</p>
+      <ul>
+        <li>住民はすべてを評価します。仕事、通勤、治安、学校、公園、騒音、汚染、生活費。</li>
+        <li>建物をタップすると、その状態と成長しない理由がわかります。</li>
+        <li>色覚多様性に配慮したデータマップ。</li>
+      </ul>
+    </div>
+  </div>
+  <div class="feature" id="f-tourism" style="--accent:var(--landmark)">
+    <div class="media"><video data-src="../media/f5" data-poster="../media/f5.webp" muted loop playsinline aria-label="木々に囲まれた公園の観覧車"></video></div>
+    <div>
+      <h3>街を観光地にしよう</h3>
+      <p class="sub">名所、旧市街、歩行者天国が観光客を呼び込む</p>
+      <ul>
+        <li>観覧車、スタジアム、オペラハウス、スカイタワーなどが観光客を集め、空港には飛行機で大勢がやってきます。</li>
+        <li>ホテルは観光税を徴収します。満室になると、観光客が住民の住めなくなった住宅を借りてしまいます。</li>
+        <li>観光客が増えると犯罪、騒音、家賃の高騰を招くので、短期賃貸を制限するか観光税を倍にしましょう。</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="wrap" style="padding-top:0">
+  <div class="kicker">さらにたくさん</div>
+  <h2>お好みで奥深く</h2>
+  <div class="more">
+    <div style="--accent:var(--traffic)"><b>交通と公共交通</b><p>車はそれぞれ独自のルートを選びます。車を持たない世帯は徒歩や公共交通を使います。バス、路面電車、鉄道を運行し、歩行者天国を作り、空港を開きましょう。</p></div>
+    <div style="--accent:var(--gold)"><b>政策と予算</b><p>ゾーンごとに税率を設定し、各部署に予算を配分し、融資を受け、14の政策から選べます。</p></div>
+    <div style="--accent:var(--landmark)"><b>研究と大型プロジェクト</b><p>路面電車から原子力発電まで17の技術と、万国博覧会や宇宙センターといった偉業。</p></div>
+    <div style="--accent:var(--i)"><b>火災、嵐、抗議デモ</b><p>火災は家から家へ燃え広がり、嵐は建物を傷め、不満を抱いた住民は通りに繰り出します。</p></div>
+    <div style="--accent:var(--acc)"><b>26のデータマップ</b><p>交通、汚染、地下水、風、犯罪、年齢、観光客などを表示でき、色覚多様性に配慮したモードもあります。</p></div>
+    <div style="--accent:var(--r)"><b>ミッションと節目</b><p>集落から巨大都市まで8つのランク、期限付きのミッション、25の実績、そして予期せぬニュースイベント。</p></div>
+  </div>
+</section>
+
+<div class="trust"><span>広告なし</span><span>アプリ内課金なし</span><span>トラッキングなし</span><span>完全オフラインで遊べる</span></div>
+
+<section class="wrap" style="text-align:center">
+  <div class="kicker">タッチ操作に最適化</div>
+  <h2>iPhone、iPad、Androidに対応</h2>
+  <p class="muted" style="max-width:620px;margin:16px auto 0">置く、プレビュー、確定。ボタンを長押しすると機能を確認でき、直前の操作を取り消せます。左利きモードや、より大きなUI（UIサイズ）にも切り替えられます。</p>
+  <p class="muted" style="max-width:620px;margin:12px auto 0">iPhoneとAndroidでは横向きでプレイします。iPadは縦向きにも対応しています。</p>
+  <div class="devices">
+    <img class="phone" src="../media/iphone.webp" alt="iPhoneのBoomtown：成長する街の上に表示された区画メニュー" width="1200" height="552" loading="lazy">
+    <img class="tablet" src="../media/ipad.webp" alt="iPadのBoomtown" width="600" height="800" loading="lazy">
+  </div>
+</section>
+
+<section id="requirements" class="wrap" style="padding-top:0">
+  <div class="kicker">動作環境</div>
+  <h2>必要な環境</h2>
+  <div class="more">
+    <div style="--accent:var(--acc)"><b>iPhone &amp; iPad</b><p>iOS 15以降</p></div>
+    <div style="--accent:var(--r)"><b>Android</b><p>Android 7.0（API 24）以降、スマートフォンとタブレット</p></div>
+    <div style="--accent:var(--gold)"><b>画面の向き</b><p>iPhoneとAndroidは横向き。iPadは縦向きにも対応します。</p></div>
+    <div style="--accent:var(--landmark)"><b>接続</b><p>不要。完全オフラインで遊べます。</p></div>
+  </div>
+</section>
+
+<section id="gallery" style="padding-top:0">
+  <div class="wrap"><div class="kicker">ギャラリー</div><h2 style="margin-bottom:28px">ゲーム画面そのまま</h2></div>
+  <div class="gallery">
+    <a href="../media/g1.webp"><img src="../media/g1-640.webp" srcset="../media/g1-640.webp 640w, ../media/g1.webp 1280w" sizes="min(78vw, 560px)" alt="郊外に囲まれた都心の高層ビル群" width="640" height="360" loading="lazy"></a>
+    <a href="../media/g2.webp"><img src="../media/g2-640.webp" srcset="../media/g2-640.webp 640w, ../media/g2.webp 1280w" sizes="min(78vw, 560px)" alt="郊外に降る冬の雪" width="640" height="360" loading="lazy"></a>
+    <a href="../media/g6.webp"><img src="../media/g6-640.webp" srcset="../media/g6-640.webp 640w, ../media/g6.webp 1280w" sizes="min(78vw, 560px)" alt="一日の始まり、小さな郊外の村" width="640" height="360" loading="lazy"></a>
+    <a href="../media/g3.webp"><img src="../media/g3-640.webp" srcset="../media/g3-640.webp 640w, ../media/g3.webp 1280w" sizes="min(78vw, 560px)" alt="線路沿いの農場" width="640" height="360" loading="lazy"></a>
+    <a href="../media/g7.webp"><img src="../media/g7-640.webp" srcset="../media/g7-640.webp 640w, ../media/g7.webp 1280w" sizes="min(78vw, 560px)" alt="同じ村が午後には町へと成長" width="640" height="360" loading="lazy"></a>
+    <a href="../media/g4.webp"><img src="../media/g4-640.webp" srcset="../media/g4-640.webp 640w, ../media/g4.webp 1280w" sizes="min(78vw, 560px)" alt="地価データマップ" width="640" height="360" loading="lazy"></a>
+    <a href="../media/g8.webp"><img src="../media/g8-640.webp" srcset="../media/g8-640.webp 640w, ../media/g8.webp 1280w" sizes="min(78vw, 560px)" alt="夜、明かりの灯るビルと街灯の都心" width="640" height="360" loading="lazy"></a>
+    <a href="../media/g5.webp"><img src="../media/g5-640.webp" srcset="../media/g5-640.webp 640w, ../media/g5.webp 1280w" sizes="min(78vw, 560px)" alt="公園の観覧車" width="640" height="360" loading="lazy"></a>
+  </div>
+</section>
+
+<section id="maps" class="wrap" style="padding-top:0">
+  <div class="kicker">6つのマップ</div>
+  <h2>易しい川の谷から厳しい砂漠まで</h2>
+  <div class="maps">
+    <div class="map" style="--b:linear-gradient(135deg,rgba(95,211,138,.28),rgba(58,141,255,.18))"><span class="e">🏞️</span><div><b>川の谷</b><div class="lvl easy">易しい</div></div></div>
+    <div class="map" style="--b:linear-gradient(135deg,rgba(58,141,255,.32),rgba(255,209,102,.14))"><span class="e">🌊</span><div><b>海岸線</b><div class="lvl normal">普通</div></div></div>
+    <div class="map" style="--b:linear-gradient(135deg,rgba(92,200,255,.28),rgba(95,211,138,.2))"><span class="e">🛶</span><div><b>湖水地方</b><div class="lvl easy">易しい</div></div></div>
+    <div class="map" style="--b:linear-gradient(135deg,rgba(92,200,255,.3),rgba(143,124,240,.22))"><span class="e">🏝️</span><div><b>群島</b><div class="lvl hard">難しい</div></div></div>
+    <div class="map" style="--b:linear-gradient(135deg,rgba(245,185,65,.32),rgba(255,154,107,.2))"><span class="e">🌵</span><div><b>砂漠のオアシス</b><div class="lvl hard">難しい</div></div></div>
+    <div class="map" style="--b:linear-gradient(135deg,rgba(47,158,88,.34),rgba(238,243,249,.1))"><span class="e">🌲</span><div><b>亜寒帯の森</b><div class="lvl normal">普通</div></div></div>
+  </div>
+</section>
+
+<section id="modes" class="wrap" style="padding-top:0">
+  <div class="kicker">モード</div>
+  <h2>4つの遊び方</h2>
+  <div class="more">
+    <div style="--accent:var(--r)"><b>のんびり</b><p>開始資金は$120,000です。維持費は×0.8、火災の発生確率は半分、破産はありません。</p></div>
+    <div style="--accent:var(--gold)"><b>普通</b><p>開始資金は$60,000です。12か月赤字が続くと、街は破産します。</p></div>
+    <div style="--accent:var(--traffic)"><b>難しい</b><p>開始資金は$30,000です。維持費は×1.25、火災は1.5倍の確率、破産ルールは同じです。</p></div>
+    <div style="--accent:var(--landmark)"><b>サンドボックス</b><p>資金は無制限、すべての解放が無料です。実績は対象外です。</p></div>
+  </div>
+  <p class="muted" style="margin:24px 0 0">新しい街ごとに、規模、地形、世代交代のペース、カレンダーを選べます。</p>
+</section>
+
+<section id="progression" class="wrap" style="padding-top:0">
+  <div class="kicker">進行</div>
+  <h2>集落から巨大都市へ</h2>
+  <p class="muted" style="margin:16px 0 0">集落、村、町、小都市、都市、大都市、メガロポリス、巨大都市。</p>
+  <div class="more">
+    <div style="--accent:var(--gold)"><b>25の実績</b><p>すべての街で引き継がれます。サンドボックスの街は対象外です。</p></div>
+    <div style="--accent:var(--r)"><b>期限付きミッション</b><p>現金報酬のある目標が12種類あります。期限があるので、達成できそうなものを選びましょう。</p></div>
+    <div style="--accent:var(--landmark)"><b>17の技術</b><p>さらに5つの大型プロジェクト（万国博覧会から宇宙センターまで）。</p></div>
+  </div>
+</section>
+
+<section id="download" class="wrap cta">
+  <img src="../media/icon.webp" alt="" width="96" height="96" style="margin:0 auto 20px;border-radius:24%" loading="lazy">
+  <h2>街があなたを待っています</h2>
+  <p class="muted">App StoreとGoogle Playで近日配信予定です。</p>
+  <p class="price"><span id="price">4.99</span> · 買い切り · 広告なし・アプリ内課金なし</p>
+  <div class="stores">
+    <a class="btn go" href="#download"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16.37 12.6c-.02-2.4 1.96-3.56 2.05-3.62-1.12-1.63-2.86-1.86-3.48-1.88-1.48-.15-2.89.87-3.64.87-.75 0-1.91-.85-3.14-.83-1.62.02-3.11.94-3.94 2.39-1.68 2.92-.43 7.24 1.21 9.61.8 1.16 1.75 2.46 3 2.41 1.2-.05 1.66-.78 3.11-.78 1.45 0 1.86.78 3.13.75 1.29-.02 2.11-1.18 2.9-2.35.91-1.34 1.29-2.64 1.31-2.71-.03-.01-2.51-.96-2.53-3.86zM13.98 5.55c.66-.8 1.11-1.92.99-3.03-.95.04-2.11.64-2.79 1.43-.61.71-1.15 1.85-1.01 2.94 1.06.08 2.15-.54 2.81-1.34z"/></svg><span><small>近日公開</small>App Store</span></a>
+    <a class="btn" href="#download"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#5cc8ff" d="M4 2.6 13.6 12 4 21.4c-.3-.2-.5-.6-.5-1V3.6c0-.4.2-.8.5-1z"/><path fill="#4ade80" d="M4 2.6c.3-.2.8-.2 1.2 0l11 6.3-2.6 3.1z"/><path fill="#f87171" d="M4 21.4c.3.2.8.2 1.2 0l11-6.3-2.6-3.1z"/><path fill="#ffd166" d="m16.2 8.9 3.4 1.9c.9.5.9 1.8 0 2.3l-3.4 2-2.6-3.1z"/></svg><span><small>近日公開</small>Google Play</span></a>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="row">
+      <span>© 2026 BitSpire GmbH</span>
+      <span><a href="privacy.html">プライバシー</a> · <a href="support.html">サポート</a> · <a href="legal.html">法的情報</a></span>
+      <label class="langs"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.3" aria-hidden="true"><circle cx="8" cy="8" r="6.5"/><path d="M1.5 8h13M8 1.5c-2.2 2-2.2 11.5 0 13M8 1.5c2.2 2 2.2 11.5 0 13"/></svg><select aria-label="Language" onchange="try{localStorage.setItem('lang',this.options[this.selectedIndex].lang)}catch(e){}location.href=this.value"><option value="../" lang="en">English</option><option value="../de/" lang="de">Deutsch</option><option value="../fr/" lang="fr">Français</option><option value="../it/" lang="it">Italiano</option><option value="../es/" lang="es">Español</option><option value="./" lang="ja" selected>日本語</option><option value="../zh-Hans/" lang="zh-Hans">简体中文</option></select></label>
+    </div>
+    <details>
+      <summary>クレジット</summary>
+      <p>3Dモデルと効果音：Kenney（kenney.nl）、CC0 1.0。音楽：FreePD.com（Kevin MacLeod、Bryan Teoh）、CC0 1.0。フォント：Inter（Rasmus Andersson）、Outfit（Rodrigo Fuenzalida）、SIL OFL 1.1。Material Symbols：Google、Apache 2.0。使用技術：Three.js、Capacitor、Vite（MIT）。</p>
+    </details>
+  </div>
+</footer>
+
+<script>
+const nav = document.querySelector('nav');
+addEventListener('scroll', () => nav.classList.toggle('solid', scrollY > 40), { passive: true });
+const region = navigator.language.split('-')[1]?.toUpperCase();
+const local = region === 'CH' ? 'CHF 5.00' : region === 'US' ? '$4.99' : ['AT', 'BE', 'DE', 'ES', 'FR', 'IE', 'IT', 'NL', 'PT'].includes(region) ? '€4.99' : '';
+if (local) document.getElementById('price').textContent = local;
+// Posters load near the viewport; videos too unless reduced motion / data saver, and pause off-screen.
+const still = matchMedia('(prefers-reduced-motion: reduce)').matches || navigator.connection?.saveData;
+const hd = !/2g/.test(navigator.connection?.effectiveType || '');
+const io = new IntersectionObserver((es) => es.forEach(({ target: v, isIntersecting }) => {
+  if (!isIntersecting) return v.pause();
+  if (v.dataset.poster) v.poster = v.dataset.poster;
+  if (still) return;
+  if (!v.src) {
+    const ext = 'webm' in v.dataset && v.canPlayType('video/webm; codecs="av01.0.08M.08"') ? '.webm' : '.mp4';
+    v.src = (v.dataset.hd && hd && matchMedia('(min-width: 1000px)').matches ? v.dataset.hd : v.dataset.src) + ext;
+  }
+  v.play().catch(() => {});
+}), { rootMargin: '300px' });
+document.querySelectorAll('video[data-src]').forEach((v) => io.observe(v));
+</script>
+</body>
+</html>

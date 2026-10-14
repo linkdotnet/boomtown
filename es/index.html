@@ -1,0 +1,283 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Boomtown: juego de construir ciudades para iPhone, iPad y Android</title>
+<meta name="description" content="Juego de construir ciudades: construye una ciudad viva. Zonifica barrios, haz crecer generaciones de ciudadanos, recibe turistas y mantén las luces encendidas en olas de calor y heladas. Sin anuncios, sin compras dentro de la app, totalmente sin conexión.">
+<meta name="theme-color" content="#0d131c">
+<link rel="canonical" href="https://boomtown.info/es/">
+<!-- TODO: uncomment once the App Store ID exists. -->
+<!-- <meta name="apple-itunes-app" content="app-id=0000000000"> -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Boomtown: juego de construir ciudades">
+<meta property="og:description" content="Convierte un camino polvoriento en una metrópolis próspera. Un constructor de ciudades relajante pero profundo para iPhone, iPad y Android.">
+<meta property="og:url" content="https://boomtown.info/es/">
+<meta property="og:image" content="https://boomtown.info/media/og.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../apple-touch-icon.png">
+<link rel="preload" href="../fonts/outfit.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="../fonts/inter.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" as="image" href="../media/hero.webp" imagesrcset="../media/hero.webp 1280w, ../media/hero-1920.webp 1920w" imagesizes="100vw">
+<link rel="stylesheet" href="../style.css">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"VideoGame","name":"Boomtown","url":"https://boomtown.info/es/","image":"https://boomtown.info/media/og.jpg","description":"Juego de construir ciudades: construye una ciudad viva. Zonifica barrios, haz crecer generaciones de ciudadanos, recibe turistas y mantén las luces encendidas en olas de calor y heladas. Sin anuncios, sin compras dentro de la app, totalmente sin conexión.","inLanguage":"es","genre":["Juego de construir ciudades","Simulación","Estrategia"],"applicationCategory":"GameApplication","gamePlatform":["iOS","iPadOS","Android"],"operatingSystem":["iOS","iPadOS","Android"],"author":{"@type":"Organization","name":"BitSpire GmbH","url":"https://bitspire.ch"},"publisher":{"@type":"Organization","name":"BitSpire GmbH","url":"https://bitspire.ch"},"offers":{"@type":"Offer","price":"4.99","priceCurrency":"USD"}}</script>
+
+<link rel="alternate" hreflang="en" href="https://boomtown.info/">
+<link rel="alternate" hreflang="de" href="https://boomtown.info/de/">
+<link rel="alternate" hreflang="fr" href="https://boomtown.info/fr/">
+<link rel="alternate" hreflang="it" href="https://boomtown.info/it/">
+<link rel="alternate" hreflang="es" href="https://boomtown.info/es/">
+<link rel="alternate" hreflang="ja" href="https://boomtown.info/ja/">
+<link rel="alternate" hreflang="zh-Hans" href="https://boomtown.info/zh-Hans/">
+<link rel="alternate" hreflang="x-default" href="https://boomtown.info/">
+</head>
+<body>
+
+<nav>
+  <a class="brand" href="./"><img src="../media/icon.webp" alt="" width="34" height="34">BOOMTOWN</a>
+  <div class="links"><a href="#features">Funciones</a><a href="#gallery">Galería</a><a href="#maps">Mapas</a><a href="support.html">Soporte</a></div>
+  <label class="langs"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.3" aria-hidden="true"><circle cx="8" cy="8" r="6.5"/><path d="M1.5 8h13M8 1.5c-2.2 2-2.2 11.5 0 13M8 1.5c2.2 2 2.2 11.5 0 13"/></svg><select aria-label="Language" onchange="try{localStorage.setItem('lang',this.options[this.selectedIndex].lang)}catch(e){}location.href=this.value"><option value="../" lang="en">English</option><option value="../de/" lang="de">Deutsch</option><option value="../fr/" lang="fr">Français</option><option value="../it/" lang="it">Italiano</option><option value="./" lang="es" selected>Español</option><option value="../ja/" lang="ja">日本語</option><option value="../zh-Hans/" lang="zh-Hans">简体中文</option></select></label>
+</nav>
+
+<header class="hero">
+  <img class="poster" src="../media/hero.webp" srcset="../media/hero.webp 1280w, ../media/hero-1920.webp 1920w" sizes="100vw" alt="" width="1280" height="720" fetchpriority="high">
+  <video data-src="../media/hero" data-hd="../media/hero-1080" data-webm muted loop playsinline aria-hidden="true"></video>
+  <div class="wrap">
+    <img class="icon" src="../media/icon.webp" alt="Icono de la app Boomtown" width="104" height="104">
+    <h1>BOOMTOWN</h1>
+    <p class="tag">Construye una ciudad viva</p>
+    <p class="lead">Tu ciudad, tus reglas: zonifica barrios, mantén las luces encendidas en olas de calor y heladas, alimenta a tus habitantes y mira cómo cobra vida el tráfico.</p>
+    <!-- TODO: replace both store hrefs here and in #download once the listings are live. -->
+    <div class="stores">
+      <a class="btn go" href="#download"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16.37 12.6c-.02-2.4 1.96-3.56 2.05-3.62-1.12-1.63-2.86-1.86-3.48-1.88-1.48-.15-2.89.87-3.64.87-.75 0-1.91-.85-3.14-.83-1.62.02-3.11.94-3.94 2.39-1.68 2.92-.43 7.24 1.21 9.61.8 1.16 1.75 2.46 3 2.41 1.2-.05 1.66-.78 3.11-.78 1.45 0 1.86.78 3.13.75 1.29-.02 2.11-1.18 2.9-2.35.91-1.34 1.29-2.64 1.31-2.71-.03-.01-2.51-.96-2.53-3.86zM13.98 5.55c.66-.8 1.11-1.92.99-3.03-.95.04-2.11.64-2.79 1.43-.61.71-1.15 1.85-1.01 2.94 1.06.08 2.15-.54 2.81-1.34z"/></svg><span><small>Próximamente</small>App Store</span></a>
+      <a class="btn" href="#download"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#5cc8ff" d="M4 2.6 13.6 12 4 21.4c-.3-.2-.5-.6-.5-1V3.6c0-.4.2-.8.5-1z"/><path fill="#4ade80" d="M4 2.6c.3-.2.8-.2 1.2 0l11 6.3-2.6 3.1z"/><path fill="#f87171" d="M4 21.4c.3.2.8.2 1.2 0l11-6.3-2.6-3.1z"/><path fill="#ffd166" d="m16.2 8.9 3.4 1.9c.9.5.9 1.8 0 2.3l-3.4 2-2.6-3.1z"/></svg><span><small>Próximamente</small>Google Play</span></a>
+    </div>
+    <ul class="chips">
+      <li><a href="#f-build" style="--accent:var(--r)"><img src="../media/t1.webp" alt="" width="32" height="32">Zonifica &amp; crece</a></li>
+      <li><a href="#f-seasons" style="--accent:var(--acc)"><img src="../media/t2.webp" alt="" width="32" height="32">Clima &amp; estaciones</a></li>
+      <li><a href="#f-generations" style="--accent:var(--people)"><img src="../media/t6.webp" alt="" width="32" height="32">Generaciones</a></li>
+      <li><a href="#f-data" style="--accent:var(--traffic)"><img src="../media/t3.webp" alt="" width="32" height="32">Tráfico vivo</a></li>
+      <li><a href="#f-farms" style="--accent:var(--i)"><img src="../media/t4.webp" alt="" width="32" height="32">Granjas &amp; minas</a></li>
+      <li><a href="#f-tourism" style="--accent:var(--landmark)"><img src="../media/t5.webp" alt="" width="32" height="32">Turismo</a></li>
+    </ul>
+  </div>
+</header>
+
+<section class="wrap intro">
+  <div class="kicker">Juego de construir ciudades · iPhone · iPad · Android</div>
+  <h2>Convierte un camino polvoriento en una metrópolis próspera.</h2>
+  <p>Boomtown es un constructor de ciudades relajante pero profundo. Pinta casas, tiendas e industrias, conecta la electricidad y el agua, y mira cómo tus habitantes se mudan, forman familias, van al trabajo y te dicen exactamente lo que piensan.</p>
+</section>
+
+<section id="features" class="wrap" style="padding-top:0">
+  <div class="feature" id="f-build" style="--accent:var(--r)">
+    <div class="media"><video data-src="../media/f1" data-poster="../media/f1.webp" muted loop playsinline aria-label="Vuelo sobre un denso skyline del centro"></video></div>
+    <div>
+      <h3>Construye una ciudad viva</h3>
+      <p class="sub">Zonifica, dale energía y mira cómo crece</p>
+      <ul>
+        <li>Cada coche va a algún lugar: los viajeros eligen rutas, en hora punta se forman atascos y mejores carreteras o líneas de autobús y tren los solucionan.</li>
+        <li>Zonas residenciales, comerciales e industriales en estilo estándar, suburbano y casco antiguo.</li>
+        <li>Crece desde aldea hasta pueblo, ciudad y, finalmente, megaciudad.</li>
+      </ul>
+    </div>
+  </div>
+  <div class="feature" id="f-seasons" style="--accent:var(--acc)">
+    <div class="media"><video data-src="../media/f2" data-poster="../media/f2.webp" muted loop playsinline aria-label="Nieve cayendo sobre las calles suburbanas en invierno"></video></div>
+    <div>
+      <h3>Cada estación cuenta</h3>
+      <p class="sub">La nieve, las olas de calor y las tormentas cambian cómo funciona tu ciudad</p>
+      <ul>
+        <li>Las olas de calor disparan la demanda de aire acondicionado, las heladas necesitan calefacción.</li>
+        <li>Las nubes atenúan tus parques solares y las tormentas hacen girar tus aerogeneradores.</li>
+        <li>En invierno la nieve cubre la ciudad, en otoño los árboles se vuelven dorados y en verano llegan las cosechas.</li>
+        <li>Las nuevas ciudades siguen las estaciones de tu hemisferio con el calendario «Local», activado por defecto.</li>
+      </ul>
+    </div>
+  </div>
+  <div class="feature" id="f-generations" style="--accent:var(--people)">
+    <div class="media"><img src="../media/people-640.webp" srcset="../media/people-640.webp 640w, ../media/people.webp 1280w" sizes="(max-width: 820px) 100vw, 640px" alt="City Hall People tab with age pyramid, life expectancy and births and deaths" width="640" height="360" loading="lazy"></div>
+    <div>
+      <h3>Generaciones que crecen</h3>
+      <p class="sub">Los habitantes nacen, envejecen y transmiten su legado</p>
+      <ul>
+        <li>Cada hogar tiene hijos, padres y abuelos que envejecen año tras año, y los jóvenes adultos se independizan para formar su propio hogar.</li>
+        <li>Las guarderías elevan la natalidad, los médicos la esperanza de vida, las escuelas se llenan y se vacían, y los cementerios se quedan poco a poco sin espacio.</li>
+        <li>Fija la edad de jubilación y la baja parental, y luego observa cómo cambia tu pirámide de edades una década después.</li>
+      </ul>
+    </div>
+  </div>
+  <div class="feature" id="f-farms" style="--accent:var(--i)">
+    <div class="media"><video data-src="../media/f3" data-poster="../media/f3.webp" muted loop playsinline aria-label="Campos de cultivo junto a una vía férrea a las afueras"></video></div>
+    <div>
+      <h3>Granjas, minas y comercio</h3>
+      <p class="sub">Cultiva alimentos, vende el excedente, excava mineral</p>
+      <ul>
+        <li>Las granjas alimentan a tus habitantes: vende el excedente, guarda parte en una reserva de alimentos o paga importaciones.</li>
+        <li>Las minas extraen mineral de las montañas hasta que la veta se agota.</li>
+        <li>La industria de alta tecnología llega cuando tu ciudad está bien formada.</li>
+      </ul>
+    </div>
+  </div>
+  <div class="feature" id="f-data" style="--accent:var(--traffic)">
+    <div class="media"><video data-src="../media/f4" data-poster="../media/f4.webp" muted loop playsinline aria-label="Mapa de valor del suelo que tiñe la ciudad"></video></div>
+    <div>
+      <h3>Descubre lo que necesitan tus habitantes</h3>
+      <p class="sub">Los mapas de datos revelan tráfico, contaminación y valor del suelo</p>
+      <ul>
+        <li>Los habitantes lo valoran todo: empleo, desplazamientos, seguridad, colegios, parques, ruido, contaminación y coste de la vida.</li>
+        <li>Toca cualquier edificio para ver cómo va y por qué no crece.</li>
+        <li>Mapas de datos aptos para daltónicos.</li>
+      </ul>
+    </div>
+  </div>
+  <div class="feature" id="f-tourism" style="--accent:var(--landmark)">
+    <div class="media"><video data-src="../media/f5" data-poster="../media/f5.webp" muted loop playsinline aria-label="Una noria en un parque rodeado de árboles"></video></div>
+    <div>
+      <h3>Convierte tu ciudad en un destino</h3>
+      <p class="sub">Monumentos, cascos antiguos y calles peatonales atraen visitantes</p>
+      <ul>
+        <li>Una noria, un estadio, una ópera, la Sky Tower y más atraen turistas, y un aeropuerto los trae en avión por cargamentos enteros.</li>
+        <li>Los hoteles cobran una tasa turística. Cuando están llenos, los visitantes alquilan pisos en los que tus habitantes ya no pueden vivir.</li>
+        <li>Las multitudes traen delincuencia, ruido y alquileres al alza, así que limita los alquileres de corta duración o duplica la tasa turística.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="wrap" style="padding-top:0">
+  <div class="kicker">Y mucho más</div>
+  <h2>Profundo cuando quieras</h2>
+  <div class="more">
+    <div style="--accent:var(--traffic)"><b>Tráfico &amp; transporte</b><p>Cada coche elige su propia ruta. Los hogares sin coche caminan o usan el transporte público. Pon en marcha líneas de autobús, tranvía y tren, peatonaliza calles y abre un aeropuerto.</p></div>
+    <div style="--accent:var(--gold)"><b>Políticas &amp; presupuesto</b><p>Fija impuestos por zona, financia cada departamento, pide préstamos y elige entre 14 políticas.</p></div>
+    <div style="--accent:var(--landmark)"><b>Investigación &amp; grandes proyectos</b><p>17 tecnologías, desde tranvías hasta energía nuclear, y maravillas como la Expo Mundial y el Centro Espacial.</p></div>
+    <div style="--accent:var(--i)"><b>Incendios, tormentas &amp; protestas</b><p>Los incendios se propagan de casa en casa, las tormentas dañan edificios y los habitantes descontentos salen a la calle.</p></div>
+    <div style="--accent:var(--acc)"><b>26 mapas de datos</b><p>Tráfico, contaminación, aguas subterráneas, viento, delincuencia, edad, visitantes y más, con modo para daltónicos.</p></div>
+    <div style="--accent:var(--r)"><b>Misiones &amp; hitos</b><p>Ocho rangos de aldea a megaciudad, misiones con tiempo límite, 25 logros y noticias sorpresa.</p></div>
+  </div>
+</section>
+
+<div class="trust"><span>Sin anuncios</span><span>Sin compras dentro de la app</span><span>Sin rastreo</span><span>Se juega totalmente sin conexión</span></div>
+
+<section class="wrap" style="text-align:center">
+  <div class="kicker">Pensado para el tacto</div>
+  <h2>Diseñado para iPhone, iPad y Android</h2>
+  <p class="muted" style="max-width:620px;margin:16px auto 0">Coloca, previsualiza, confirma. Mantén pulsado cualquier botón para saber qué hace, deshaz tus últimos movimientos y activa el modo zurdo o una interfaz más grande (tamaño de la UI).</p>
+  <p class="muted" style="max-width:620px;margin:12px auto 0">En iPhone y Android se juega en horizontal. El iPad también admite vertical.</p>
+  <div class="devices">
+    <img class="phone" src="../media/iphone.webp" alt="Boomtown en iPhone: el menú de zonificación sobre una ciudad en crecimiento" width="1200" height="552" loading="lazy">
+    <img class="tablet" src="../media/ipad.webp" alt="Boomtown en iPad" width="600" height="800" loading="lazy">
+  </div>
+</section>
+
+<section id="requirements" class="wrap" style="padding-top:0">
+  <div class="kicker">Requisitos</div>
+  <h2>Lo que necesitas</h2>
+  <div class="more">
+    <div style="--accent:var(--acc)"><b>iPhone &amp; iPad</b><p>iOS 15 o posterior.</p></div>
+    <div style="--accent:var(--r)"><b>Android</b><p>Android 7.0 (API 24) o posterior, teléfonos y tabletas.</p></div>
+    <div style="--accent:var(--gold)"><b>Orientación</b><p>Horizontal en iPhone y Android. El iPad también admite vertical.</p></div>
+    <div style="--accent:var(--landmark)"><b>Conexión</b><p>Ninguna. Se juega totalmente sin conexión.</p></div>
+  </div>
+</section>
+
+<section id="gallery" style="padding-top:0">
+  <div class="wrap"><div class="kicker">Galería</div><h2 style="margin-bottom:28px">Directamente del juego</h2></div>
+  <div class="gallery">
+    <a href="../media/g1.webp"><img src="../media/g1-640.webp" srcset="../media/g1-640.webp 640w, ../media/g1.webp 1280w" sizes="min(78vw, 560px)" alt="Torres del centro rodeadas de barrios residenciales" width="640" height="360" loading="lazy"></a>
+    <a href="../media/g2.webp"><img src="../media/g2-640.webp" srcset="../media/g2-640.webp 640w, ../media/g2.webp 1280w" sizes="min(78vw, 560px)" alt="Nieve invernal sobre los barrios residenciales" width="640" height="360" loading="lazy"></a>
+    <a href="../media/g6.webp"><img src="../media/g6-640.webp" srcset="../media/g6-640.webp 640w, ../media/g6.webp 1280w" sizes="min(78vw, 560px)" alt="Un pequeño pueblo suburbano al inicio del día" width="640" height="360" loading="lazy"></a>
+    <a href="../media/g3.webp"><img src="../media/g3-640.webp" srcset="../media/g3-640.webp 640w, ../media/g3.webp 1280w" sizes="min(78vw, 560px)" alt="Granjas junto a la vía férrea" width="640" height="360" loading="lazy"></a>
+    <a href="../media/g7.webp"><img src="../media/g7-640.webp" srcset="../media/g7-640.webp 640w, ../media/g7.webp 1280w" sizes="min(78vw, 560px)" alt="El mismo pueblo convertido en ciudad por la tarde" width="640" height="360" loading="lazy"></a>
+    <a href="../media/g4.webp"><img src="../media/g4-640.webp" srcset="../media/g4-640.webp 640w, ../media/g4.webp 1280w" sizes="min(78vw, 560px)" alt="Mapa de valor del suelo" width="640" height="360" loading="lazy"></a>
+    <a href="../media/g8.webp"><img src="../media/g8-640.webp" srcset="../media/g8-640.webp 640w, ../media/g8.webp 1280w" sizes="min(78vw, 560px)" alt="Torres del centro con ventanas iluminadas y farolas de noche" width="640" height="360" loading="lazy"></a>
+    <a href="../media/g5.webp"><img src="../media/g5-640.webp" srcset="../media/g5-640.webp 640w, ../media/g5.webp 1280w" sizes="min(78vw, 560px)" alt="Noria en el parque" width="640" height="360" loading="lazy"></a>
+  </div>
+</section>
+
+<section id="maps" class="wrap" style="padding-top:0">
+  <div class="kicker">Seis mapas</div>
+  <h2>Desde fáciles valles fluviales hasta duros desiertos</h2>
+  <div class="maps">
+    <div class="map" style="--b:linear-gradient(135deg,rgba(95,211,138,.28),rgba(58,141,255,.18))"><span class="e">🏞️</span><div><b>Valle fluvial</b><div class="lvl easy">Fácil</div></div></div>
+    <div class="map" style="--b:linear-gradient(135deg,rgba(58,141,255,.32),rgba(255,209,102,.14))"><span class="e">🌊</span><div><b>Costa</b><div class="lvl normal">Normal</div></div></div>
+    <div class="map" style="--b:linear-gradient(135deg,rgba(92,200,255,.28),rgba(95,211,138,.2))"><span class="e">🛶</span><div><b>Región de los lagos</b><div class="lvl easy">Fácil</div></div></div>
+    <div class="map" style="--b:linear-gradient(135deg,rgba(92,200,255,.3),rgba(143,124,240,.22))"><span class="e">🏝️</span><div><b>Archipiélago</b><div class="lvl hard">Difícil</div></div></div>
+    <div class="map" style="--b:linear-gradient(135deg,rgba(245,185,65,.32),rgba(255,154,107,.2))"><span class="e">🌵</span><div><b>Oasis del desierto</b><div class="lvl hard">Difícil</div></div></div>
+    <div class="map" style="--b:linear-gradient(135deg,rgba(47,158,88,.34),rgba(238,243,249,.1))"><span class="e">🌲</span><div><b>Bosque boreal</b><div class="lvl normal">Normal</div></div></div>
+  </div>
+</section>
+
+<section id="modes" class="wrap" style="padding-top:0">
+  <div class="kicker">Modos</div>
+  <h2>Cuatro formas de jugar</h2>
+  <div class="more">
+    <div style="--accent:var(--r)"><b>Relajado</b><p>$120,000 para empezar. Mantenimiento ×0,8, incendios con la mitad de probabilidad y sin quiebra.</p></div>
+    <div style="--accent:var(--gold)"><b>Normal</b><p>$60,000 para empezar. Doce meses en números rojos y la ciudad quiebra.</p></div>
+    <div style="--accent:var(--traffic)"><b>Difícil</b><p>$30,000 para empezar. Mantenimiento ×1,25, incendios 1,5 veces más probables, misma regla de quiebra.</p></div>
+    <div style="--accent:var(--landmark)"><b>Sandbox</b><p>Dinero ilimitado y todos los desbloqueos gratis. Los logros no cuentan.</p></div>
+  </div>
+  <p class="muted" style="margin:24px 0 0">Elige el tamaño de la ciudad, el terreno, el ritmo de las generaciones y el calendario de cada nueva ciudad.</p>
+</section>
+
+<section id="progression" class="wrap" style="padding-top:0">
+  <div class="kicker">Progresión</div>
+  <h2>De aldea a megaciudad</h2>
+  <p class="muted" style="margin:16px 0 0">Aldea, Pueblo, Villa, Ciudad pequeña, Ciudad, Metrópolis, Megalópolis, Megaciudad.</p>
+  <div class="more">
+    <div style="--accent:var(--gold)"><b>25 logros</b><p>Se conservan en todas tus ciudades. Las ciudades sandbox no cuentan.</p></div>
+    <div style="--accent:var(--r)"><b>Misiones con tiempo límite</b><p>12 tipos de objetivos con recompensas en dinero. Caducan, así que elige los que puedas alcanzar.</p></div>
+    <div style="--accent:var(--landmark)"><b>17 tecnologías</b><p>Además, 5 grandes proyectos, desde la Expo Mundial hasta el Centro Espacial.</p></div>
+  </div>
+</section>
+
+<section id="download" class="wrap cta">
+  <img src="../media/icon.webp" alt="" width="96" height="96" style="margin:0 auto 20px;border-radius:24%" loading="lazy">
+  <h2>Tu ciudad te espera</h2>
+  <p class="muted">Próximamente en App Store y Google Play.</p>
+  <p class="price"><span id="price">4.99</span> · compra única · sin anuncios, sin compras dentro de la app</p>
+  <div class="stores">
+    <a class="btn go" href="#download"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16.37 12.6c-.02-2.4 1.96-3.56 2.05-3.62-1.12-1.63-2.86-1.86-3.48-1.88-1.48-.15-2.89.87-3.64.87-.75 0-1.91-.85-3.14-.83-1.62.02-3.11.94-3.94 2.39-1.68 2.92-.43 7.24 1.21 9.61.8 1.16 1.75 2.46 3 2.41 1.2-.05 1.66-.78 3.11-.78 1.45 0 1.86.78 3.13.75 1.29-.02 2.11-1.18 2.9-2.35.91-1.34 1.29-2.64 1.31-2.71-.03-.01-2.51-.96-2.53-3.86zM13.98 5.55c.66-.8 1.11-1.92.99-3.03-.95.04-2.11.64-2.79 1.43-.61.71-1.15 1.85-1.01 2.94 1.06.08 2.15-.54 2.81-1.34z"/></svg><span><small>Próximamente</small>App Store</span></a>
+    <a class="btn" href="#download"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#5cc8ff" d="M4 2.6 13.6 12 4 21.4c-.3-.2-.5-.6-.5-1V3.6c0-.4.2-.8.5-1z"/><path fill="#4ade80" d="M4 2.6c.3-.2.8-.2 1.2 0l11 6.3-2.6 3.1z"/><path fill="#f87171" d="M4 21.4c.3.2.8.2 1.2 0l11-6.3-2.6-3.1z"/><path fill="#ffd166" d="m16.2 8.9 3.4 1.9c.9.5.9 1.8 0 2.3l-3.4 2-2.6-3.1z"/></svg><span><small>Próximamente</small>Google Play</span></a>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="row">
+      <span>© 2026 BitSpire GmbH</span>
+      <span><a href="privacy.html">Privacidad</a> · <a href="support.html">Soporte</a> · <a href="legal.html">Aviso legal</a></span>
+      <label class="langs"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.3" aria-hidden="true"><circle cx="8" cy="8" r="6.5"/><path d="M1.5 8h13M8 1.5c-2.2 2-2.2 11.5 0 13M8 1.5c2.2 2 2.2 11.5 0 13"/></svg><select aria-label="Language" onchange="try{localStorage.setItem('lang',this.options[this.selectedIndex].lang)}catch(e){}location.href=this.value"><option value="../" lang="en">English</option><option value="../de/" lang="de">Deutsch</option><option value="../fr/" lang="fr">Français</option><option value="../it/" lang="it">Italiano</option><option value="./" lang="es" selected>Español</option><option value="../ja/" lang="ja">日本語</option><option value="../zh-Hans/" lang="zh-Hans">简体中文</option></select></label>
+    </div>
+    <details>
+      <summary>Créditos</summary>
+      <p>Modelos 3D y sonidos de Kenney (kenney.nl), CC0 1.0. Música de FreePD.com de Kevin MacLeod y Bryan Teoh, CC0 1.0. Tipografías: Inter (Rasmus Andersson) y Outfit (Rodrigo Fuenzalida), SIL OFL 1.1. Material Symbols de Google, Apache 2.0. Creado con Three.js, Capacitor y Vite (MIT).</p>
+    </details>
+  </div>
+</footer>
+
+<script>
+const nav = document.querySelector('nav');
+addEventListener('scroll', () => nav.classList.toggle('solid', scrollY > 40), { passive: true });
+const region = navigator.language.split('-')[1]?.toUpperCase();
+const local = region === 'CH' ? 'CHF 5.00' : region === 'US' ? '$4.99' : ['AT', 'BE', 'DE', 'ES', 'FR', 'IE', 'IT', 'NL', 'PT'].includes(region) ? '€4.99' : '';
+if (local) document.getElementById('price').textContent = local;
+// Posters load near the viewport; videos too unless reduced motion / data saver, and pause off-screen.
+const still = matchMedia('(prefers-reduced-motion: reduce)').matches || navigator.connection?.saveData;
+const hd = !/2g/.test(navigator.connection?.effectiveType || '');
+const io = new IntersectionObserver((es) => es.forEach(({ target: v, isIntersecting }) => {
+  if (!isIntersecting) return v.pause();
+  if (v.dataset.poster) v.poster = v.dataset.poster;
+  if (still) return;
+  if (!v.src) {
+    const ext = 'webm' in v.dataset && v.canPlayType('video/webm; codecs="av01.0.08M.08"') ? '.webm' : '.mp4';
+    v.src = (v.dataset.hd && hd && matchMedia('(min-width: 1000px)').matches ? v.dataset.hd : v.dataset.src) + ext;
+  }
+  v.play().catch(() => {});
+}), { rootMargin: '300px' });
+document.querySelectorAll('video[data-src]').forEach((v) => io.observe(v));
+</script>
+</body>
+</html>

@@ -1,0 +1,283 @@
+<!doctype html>
+<html lang="zh-Hans">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Boomtown：适用于 iPhone、iPad 和 Android 的城市建造模拟游戏</title>
+<meta name="description" content="城市建造模拟游戏。建造一座有生命的城市。划分街区，培育几代市民，迎接游客，并在热浪和寒潮中保持城市供电。无广告、无应用内购买，完全离线。">
+<meta name="theme-color" content="#0d131c">
+<link rel="canonical" href="https://boomtown.info/zh-Hans/">
+<!-- TODO: uncomment once the App Store ID exists. -->
+<!-- <meta name="apple-itunes-app" content="app-id=0000000000"> -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Boomtown：城市建造模拟游戏">
+<meta property="og:description" content="把一条尘土飞扬的小路变成繁华的大都市。一款轻松却有深度的城市建造游戏，支持 iPhone、iPad 和 Android。">
+<meta property="og:url" content="https://boomtown.info/zh-Hans/">
+<meta property="og:image" content="https://boomtown.info/media/og.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../apple-touch-icon.png">
+<link rel="preload" href="../fonts/outfit.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="../fonts/inter.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" as="image" href="../media/hero.webp" imagesrcset="../media/hero.webp 1280w, ../media/hero-1920.webp 1920w" imagesizes="100vw">
+<link rel="stylesheet" href="../style.css">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"VideoGame","name":"Boomtown","url":"https://boomtown.info/zh-Hans/","image":"https://boomtown.info/media/og.jpg","description":"城市建造模拟游戏。建造一座有生命的城市。划分街区，培育几代市民，迎接游客，并在热浪和寒潮中保持城市供电。无广告、无应用内购买，完全离线。","inLanguage":"zh-Hans","genre":["城市建造模拟","模拟","策略"],"applicationCategory":"GameApplication","gamePlatform":["iOS","iPadOS","Android"],"operatingSystem":["iOS","iPadOS","Android"],"author":{"@type":"Organization","name":"BitSpire GmbH","url":"https://bitspire.ch"},"publisher":{"@type":"Organization","name":"BitSpire GmbH","url":"https://bitspire.ch"},"offers":{"@type":"Offer","price":"4.99","priceCurrency":"USD"}}</script>
+
+<link rel="alternate" hreflang="en" href="https://boomtown.info/">
+<link rel="alternate" hreflang="de" href="https://boomtown.info/de/">
+<link rel="alternate" hreflang="fr" href="https://boomtown.info/fr/">
+<link rel="alternate" hreflang="it" href="https://boomtown.info/it/">
+<link rel="alternate" hreflang="es" href="https://boomtown.info/es/">
+<link rel="alternate" hreflang="ja" href="https://boomtown.info/ja/">
+<link rel="alternate" hreflang="zh-Hans" href="https://boomtown.info/zh-Hans/">
+<link rel="alternate" hreflang="x-default" href="https://boomtown.info/">
+</head>
+<body>
+
+<nav>
+  <a class="brand" href="./"><img src="../media/icon.webp" alt="" width="34" height="34">BOOMTOWN</a>
+  <div class="links"><a href="#features">功能</a><a href="#gallery">图库</a><a href="#maps">地图</a><a href="support.html">帮助</a></div>
+  <label class="langs"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.3" aria-hidden="true"><circle cx="8" cy="8" r="6.5"/><path d="M1.5 8h13M8 1.5c-2.2 2-2.2 11.5 0 13M8 1.5c2.2 2 2.2 11.5 0 13"/></svg><select aria-label="Language" onchange="try{localStorage.setItem('lang',this.options[this.selectedIndex].lang)}catch(e){}location.href=this.value"><option value="../" lang="en">English</option><option value="../de/" lang="de">Deutsch</option><option value="../fr/" lang="fr">Français</option><option value="../it/" lang="it">Italiano</option><option value="../es/" lang="es">Español</option><option value="../ja/" lang="ja">日本語</option><option value="./" lang="zh-Hans" selected>简体中文</option></select></label>
+</nav>
+
+<header class="hero">
+  <img class="poster" src="../media/hero.webp" srcset="../media/hero.webp 1280w, ../media/hero-1920.webp 1920w" sizes="100vw" alt="" width="1280" height="720" fetchpriority="high">
+  <video data-src="../media/hero" data-hd="../media/hero-1080" data-webm muted loop playsinline aria-hidden="true"></video>
+  <div class="wrap">
+    <img class="icon" src="../media/icon.webp" alt="Boomtown 应用图标" width="104" height="104">
+    <h1>BOOMTOWN</h1>
+    <p class="tag">建造活力之城</p>
+    <p class="lead">你的城市，你做主：划分街区，在热浪和寒潮中保持供电，养活居民，看交通渐渐活跃起来。</p>
+    <!-- TODO: replace both store hrefs here and in #download once the listings are live. -->
+    <div class="stores">
+      <a class="btn go" href="#download"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16.37 12.6c-.02-2.4 1.96-3.56 2.05-3.62-1.12-1.63-2.86-1.86-3.48-1.88-1.48-.15-2.89.87-3.64.87-.75 0-1.91-.85-3.14-.83-1.62.02-3.11.94-3.94 2.39-1.68 2.92-.43 7.24 1.21 9.61.8 1.16 1.75 2.46 3 2.41 1.2-.05 1.66-.78 3.11-.78 1.45 0 1.86.78 3.13.75 1.29-.02 2.11-1.18 2.9-2.35.91-1.34 1.29-2.64 1.31-2.71-.03-.01-2.51-.96-2.53-3.86zM13.98 5.55c.66-.8 1.11-1.92.99-3.03-.95.04-2.11.64-2.79 1.43-.61.71-1.15 1.85-1.01 2.94 1.06.08 2.15-.54 2.81-1.34z"/></svg><span><small>即将推出</small>App Store</span></a>
+      <a class="btn" href="#download"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#5cc8ff" d="M4 2.6 13.6 12 4 21.4c-.3-.2-.5-.6-.5-1V3.6c0-.4.2-.8.5-1z"/><path fill="#4ade80" d="M4 2.6c.3-.2.8-.2 1.2 0l11 6.3-2.6 3.1z"/><path fill="#f87171" d="M4 21.4c.3.2.8.2 1.2 0l11-6.3-2.6-3.1z"/><path fill="#ffd166" d="m16.2 8.9 3.4 1.9c.9.5.9 1.8 0 2.3l-3.4 2-2.6-3.1z"/></svg><span><small>即将推出</small>Google Play</span></a>
+    </div>
+    <ul class="chips">
+      <li><a href="#f-build" style="--accent:var(--r)"><img src="../media/t1.webp" alt="" width="32" height="32">规划与发展</a></li>
+      <li><a href="#f-seasons" style="--accent:var(--acc)"><img src="../media/t2.webp" alt="" width="32" height="32">天气与季节</a></li>
+      <li><a href="#f-generations" style="--accent:var(--people)"><img src="../media/t6.webp" alt="" width="32" height="32">世代更替</a></li>
+      <li><a href="#f-data" style="--accent:var(--traffic)"><img src="../media/t3.webp" alt="" width="32" height="32">活跃的交通</a></li>
+      <li><a href="#f-farms" style="--accent:var(--i)"><img src="../media/t4.webp" alt="" width="32" height="32">农场与矿山</a></li>
+      <li><a href="#f-tourism" style="--accent:var(--landmark)"><img src="../media/t5.webp" alt="" width="32" height="32">旅游</a></li>
+    </ul>
+  </div>
+</header>
+
+<section class="wrap intro">
+  <div class="kicker">城市建造模拟游戏 · iPhone · iPad · Android</div>
+  <h2>把一条尘土飞扬的小路变成繁华的大都市。</h2>
+  <p>Boomtown 是一款轻松却有深度的城市建造游戏。绘制住宅、商店和工业区，接通电力与水源，看市民迁入、组建家庭、通勤上班，并直接告诉你他们的想法。</p>
+</section>
+
+<section id="features" class="wrap" style="padding-top:0">
+  <div class="feature" id="f-build" style="--accent:var(--r)">
+    <div class="media"><video data-src="../media/f1" data-poster="../media/f1.webp" muted loop playsinline aria-label="俯瞰密集的市中心天际线"></video></div>
+    <div>
+      <h3>建造活力之城</h3>
+      <p class="sub">划分、供电、看它成长</p>
+      <ul>
+        <li>每辆车都有目的地：通勤者会选择路线，高峰期会堵车，而更好的道路或公交、地铁线路可以疏解拥堵。</li>
+        <li>住宅、商业和工业区，提供标准、郊区和老城三种风格。</li>
+        <li>从小村庄一路发展为村、镇、市，直至超级大都市。</li>
+      </ul>
+    </div>
+  </div>
+  <div class="feature" id="f-seasons" style="--accent:var(--acc)">
+    <div class="media"><video data-src="../media/f2" data-poster="../media/f2.webp" muted loop playsinline aria-label="冬天，雪落在郊区街道上"></video></div>
+    <div>
+      <h3>每个季节都很重要</h3>
+      <p class="sub">雪、热浪和风暴会改变城市的运转方式</p>
+      <ul>
+        <li>热浪会推高空调需求，寒潮则需要供暖。</li>
+        <li>云层会削弱太阳能电站的发电，暴风则会带动风力涡轮机转动。</li>
+        <li>冬天大雪覆盖全城，秋天树叶染成金黄，夏天则迎来丰收高峰。</li>
+        <li>新城市默认开启「本地」日历，会跟随你所在半球的季节变化。</li>
+      </ul>
+    </div>
+  </div>
+  <div class="feature" id="f-generations" style="--accent:var(--people)">
+    <div class="media"><img src="../media/people-640.webp" srcset="../media/people-640.webp 640w, ../media/people.webp 1280w" sizes="(max-width: 820px) 100vw, 640px" alt="City Hall People tab with age pyramid, life expectancy and births and deaths" width="640" height="360" loading="lazy"></div>
+    <div>
+      <h3>居民代代成长</h3>
+      <p class="sub">居民出生、变老、传承</p>
+      <ul>
+        <li>每个住所都有孩子、父母和祖父母，他们逐年变老；年轻人则搬出去，组建自己的家庭。</li>
+        <li>幼儿园提高出生率，医生提高预期寿命，学校时满时空，墓地则慢慢没有了空间。</li>
+        <li>设定退休年龄和育儿假，十年后再看你的人口金字塔如何变化。</li>
+      </ul>
+    </div>
+  </div>
+  <div class="feature" id="f-farms" style="--accent:var(--i)">
+    <div class="media"><video data-src="../media/f3" data-poster="../media/f3.webp" muted loop playsinline aria-label="镇边铁路旁的农田"></video></div>
+    <div>
+      <h3>农场、矿山与贸易</h3>
+      <p class="sub">种植粮食、出售余粮、开采矿石</p>
+      <ul>
+        <li>农场养活居民：可以出售余粮，也可以把一部分存入粮食储备，或用来支付进口费用。</li>
+        <li>矿山从山中开采矿石，直到矿脉枯竭。</li>
+        <li>当城市的教育水平足够高时，高科技产业就会入驻。</li>
+      </ul>
+    </div>
+  </div>
+  <div class="feature" id="f-data" style="--accent:var(--traffic)">
+    <div class="media"><video data-src="../media/f4" data-poster="../media/f4.webp" muted loop playsinline aria-label="地价数据地图为城市着色"></video></div>
+    <div>
+      <h3>看清市民的需求</h3>
+      <p class="sub">数据地图展示交通、污染与地价</p>
+      <ul>
+        <li>居民对一切都有判断：就业、通勤、治安、学校、公园、噪音、污染和生活成本。</li>
+        <li>点击任何建筑，即可查看它的运营状况以及不再增长的确切原因。</li>
+        <li>色盲友好的数据地图。</li>
+      </ul>
+    </div>
+  </div>
+  <div class="feature" id="f-tourism" style="--accent:var(--landmark)">
+    <div class="media"><video data-src="../media/f5" data-poster="../media/f5.webp" muted loop playsinline aria-label="被树木环绕的公园里的摩天轮"></video></div>
+    <div>
+      <h3>把城市变成热门目的地</h3>
+      <p class="sub">地标、老城区和步行街吸引游客</p>
+      <ul>
+        <li>摩天轮、体育场、歌剧院、天空塔等会吸引游客，机场则能成批地把游客带来。</li>
+        <li>酒店会征收旅游税。客满之后，游客会租下居民已经无法居住的公寓。</li>
+        <li>人流会带来犯罪、噪音和租金上涨，因此可以限制短租，或把旅游税翻倍。</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="wrap" style="padding-top:0">
+  <div class="kicker">还有更多</div>
+  <h2>想要多深，就有多深</h2>
+  <div class="more">
+    <div style="--accent:var(--traffic)"><b>交通与公共交通</b><p>每辆车都会选择自己的路线。无车家庭则步行或乘坐公共交通。开通公交、有轨电车和铁路，把街道改为步行街，并开设机场。</p></div>
+    <div style="--accent:var(--gold)"><b>政策与预算</b><p>按区域设定税率，为各部门拨款，借贷，并在 14 项政策中做出选择。</p></div>
+    <div style="--accent:var(--landmark)"><b>研究与大型工程</b><p>17 项科技，从有轨电车到核电，还有世界博览会、航天中心等奇观。</p></div>
+    <div style="--accent:var(--i)"><b>火灾、风暴与抗议</b><p>火灾会从一户蔓延到另一户，风暴会损毁建筑，不满的居民则走上街头。</p></div>
+    <div style="--accent:var(--acc)"><b>26 张数据地图</b><p>交通、污染、地下水、风、犯罪、年龄、游客等，另有色盲模式。</p></div>
+    <div style="--accent:var(--r)"><b>任务与里程碑</b><p>八个等级（从小村庄到超级大都市）、限时任务、25 项成就和突发新闻事件。</p></div>
+  </div>
+</section>
+
+<div class="trust"><span>无广告</span><span>无应用内购买</span><span>无追踪</span><span>完全离线可玩</span></div>
+
+<section class="wrap" style="text-align:center">
+  <div class="kicker">为触控而生</div>
+  <h2>专为 iPhone、iPad 和 Android 打造</h2>
+  <p class="muted" style="max-width:620px;margin:16px auto 0">放置、预览、确认。长按任意按钮即可了解其功能，撤销上一步操作，还可以开启左手模式或更大的界面（界面大小）。</p>
+  <p class="muted" style="max-width:620px;margin:12px auto 0">iPhone 和 Android 版为横屏游玩，iPad 还支持竖屏。</p>
+  <div class="devices">
+    <img class="phone" src="../media/iphone.webp" alt="iPhone 上的 Boomtown：覆盖在成长中城市之上的区划菜单" width="1200" height="552" loading="lazy">
+    <img class="tablet" src="../media/ipad.webp" alt="iPad 上的 Boomtown" width="600" height="800" loading="lazy">
+  </div>
+</section>
+
+<section id="requirements" class="wrap" style="padding-top:0">
+  <div class="kicker">系统要求</div>
+  <h2>所需环境</h2>
+  <div class="more">
+    <div style="--accent:var(--acc)"><b>iPhone &amp; iPad</b><p>iOS 15 或更高版本</p></div>
+    <div style="--accent:var(--r)"><b>Android</b><p>Android 7.0（API 24）或更高版本，适用于手机和平板</p></div>
+    <div style="--accent:var(--gold)"><b>屏幕方向</b><p>iPhone 和 Android 为横屏，iPad 还支持竖屏。</p></div>
+    <div style="--accent:var(--landmark)"><b>网络连接</b><p>无需联网，完全离线可玩。</p></div>
+  </div>
+</section>
+
+<section id="gallery" style="padding-top:0">
+  <div class="wrap"><div class="kicker">图库</div><h2 style="margin-bottom:28px">游戏实录</h2></div>
+  <div class="gallery">
+    <a href="../media/g1.webp"><img src="../media/g1-640.webp" srcset="../media/g1-640.webp 640w, ../media/g1.webp 1280w" sizes="min(78vw, 560px)" alt="被郊区环绕的市中心高楼" width="640" height="360" loading="lazy"></a>
+    <a href="../media/g2.webp"><img src="../media/g2-640.webp" srcset="../media/g2-640.webp 640w, ../media/g2.webp 1280w" sizes="min(78vw, 560px)" alt="郊区上空的冬雪" width="640" height="360" loading="lazy"></a>
+    <a href="../media/g6.webp"><img src="../media/g6-640.webp" srcset="../media/g6-640.webp 640w, ../media/g6.webp 1280w" sizes="min(78vw, 560px)" alt="清晨的一座郊外小村庄" width="640" height="360" loading="lazy"></a>
+    <a href="../media/g3.webp"><img src="../media/g3-640.webp" srcset="../media/g3-640.webp 640w, ../media/g3.webp 1280w" sizes="min(78vw, 560px)" alt="铁路沿线的农场" width="640" height="360" loading="lazy"></a>
+    <a href="../media/g7.webp"><img src="../media/g7-640.webp" srcset="../media/g7-640.webp 640w, ../media/g7.webp 1280w" sizes="min(78vw, 560px)" alt="同一座村庄到下午已发展成镇" width="640" height="360" loading="lazy"></a>
+    <a href="../media/g4.webp"><img src="../media/g4-640.webp" srcset="../media/g4-640.webp 640w, ../media/g4.webp 1280w" sizes="min(78vw, 560px)" alt="地价数据地图" width="640" height="360" loading="lazy"></a>
+    <a href="../media/g8.webp"><img src="../media/g8-640.webp" srcset="../media/g8-640.webp 640w, ../media/g8.webp 1280w" sizes="min(78vw, 560px)" alt="夜晚灯火通明的市中心高楼与路灯" width="640" height="360" loading="lazy"></a>
+    <a href="../media/g5.webp"><img src="../media/g5-640.webp" srcset="../media/g5-640.webp 640w, ../media/g5.webp 1280w" sizes="min(78vw, 560px)" alt="公园里的摩天轮" width="640" height="360" loading="lazy"></a>
+  </div>
+</section>
+
+<section id="maps" class="wrap" style="padding-top:0">
+  <div class="kicker">六张地图</div>
+  <h2>从平坦河谷到严酷沙漠</h2>
+  <div class="maps">
+    <div class="map" style="--b:linear-gradient(135deg,rgba(95,211,138,.28),rgba(58,141,255,.18))"><span class="e">🏞️</span><div><b>河谷</b><div class="lvl easy">简单</div></div></div>
+    <div class="map" style="--b:linear-gradient(135deg,rgba(58,141,255,.32),rgba(255,209,102,.14))"><span class="e">🌊</span><div><b>海岸线</b><div class="lvl normal">普通</div></div></div>
+    <div class="map" style="--b:linear-gradient(135deg,rgba(92,200,255,.28),rgba(95,211,138,.2))"><span class="e">🛶</span><div><b>湖区</b><div class="lvl easy">简单</div></div></div>
+    <div class="map" style="--b:linear-gradient(135deg,rgba(92,200,255,.3),rgba(143,124,240,.22))"><span class="e">🏝️</span><div><b>群岛</b><div class="lvl hard">困难</div></div></div>
+    <div class="map" style="--b:linear-gradient(135deg,rgba(245,185,65,.32),rgba(255,154,107,.2))"><span class="e">🌵</span><div><b>沙漠绿洲</b><div class="lvl hard">困难</div></div></div>
+    <div class="map" style="--b:linear-gradient(135deg,rgba(47,158,88,.34),rgba(238,243,249,.1))"><span class="e">🌲</span><div><b>北方森林</b><div class="lvl normal">普通</div></div></div>
+  </div>
+</section>
+
+<section id="modes" class="wrap" style="padding-top:0">
+  <div class="kicker">模式</div>
+  <h2>四种玩法</h2>
+  <div class="more">
+    <div style="--accent:var(--r)"><b>轻松</b><p>初始资金 $120,000。维护费 ×0.8，火灾概率减半，且不会破产。</p></div>
+    <div style="--accent:var(--gold)"><b>普通</b><p>初始资金 $60,000。连续 12 个月赤字，城市就会破产。</p></div>
+    <div style="--accent:var(--traffic)"><b>困难</b><p>初始资金 $30,000。维护费 ×1.25，火灾概率为 1.5 倍，破产规则相同。</p></div>
+    <div style="--accent:var(--landmark)"><b>沙盒</b><p>资金无限，所有解锁项目免费。成就不计入统计。</p></div>
+  </div>
+  <p class="muted" style="margin:24px 0 0">每座新城市都可以选择规模、地形、世代更替速度和日历。</p>
+</section>
+
+<section id="progression" class="wrap" style="padding-top:0">
+  <div class="kicker">成长</div>
+  <h2>从小村到超级大都市</h2>
+  <p class="muted" style="margin:16px 0 0">小村庄、村、镇、小城市、城市、大都会、大都市带、超级大都市。</p>
+  <div class="more">
+    <div style="--accent:var(--gold)"><b>25 项成就</b><p>在你所有城市之间通用。沙盒城市不计入。</p></div>
+    <div style="--accent:var(--r)"><b>限时任务</b><p>12 种带现金奖励的目标。任务会过期，因此请选择你能完成的。</p></div>
+    <div style="--accent:var(--landmark)"><b>17 项科技</b><p>另有 5 项大型工程，从世界博览会到航天中心。</p></div>
+  </div>
+</section>
+
+<section id="download" class="wrap cta">
+  <img src="../media/icon.webp" alt="" width="96" height="96" style="margin:0 auto 20px;border-radius:24%" loading="lazy">
+  <h2>你的城市正在等你</h2>
+  <p class="muted">即将登陆 App Store 和 Google Play。</p>
+  <p class="price"><span id="price">4.99</span> · 一次性购买 · 无广告、无应用内购买</p>
+  <div class="stores">
+    <a class="btn go" href="#download"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16.37 12.6c-.02-2.4 1.96-3.56 2.05-3.62-1.12-1.63-2.86-1.86-3.48-1.88-1.48-.15-2.89.87-3.64.87-.75 0-1.91-.85-3.14-.83-1.62.02-3.11.94-3.94 2.39-1.68 2.92-.43 7.24 1.21 9.61.8 1.16 1.75 2.46 3 2.41 1.2-.05 1.66-.78 3.11-.78 1.45 0 1.86.78 3.13.75 1.29-.02 2.11-1.18 2.9-2.35.91-1.34 1.29-2.64 1.31-2.71-.03-.01-2.51-.96-2.53-3.86zM13.98 5.55c.66-.8 1.11-1.92.99-3.03-.95.04-2.11.64-2.79 1.43-.61.71-1.15 1.85-1.01 2.94 1.06.08 2.15-.54 2.81-1.34z"/></svg><span><small>即将推出</small>App Store</span></a>
+    <a class="btn" href="#download"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#5cc8ff" d="M4 2.6 13.6 12 4 21.4c-.3-.2-.5-.6-.5-1V3.6c0-.4.2-.8.5-1z"/><path fill="#4ade80" d="M4 2.6c.3-.2.8-.2 1.2 0l11 6.3-2.6 3.1z"/><path fill="#f87171" d="M4 21.4c.3.2.8.2 1.2 0l11-6.3-2.6-3.1z"/><path fill="#ffd166" d="m16.2 8.9 3.4 1.9c.9.5.9 1.8 0 2.3l-3.4 2-2.6-3.1z"/></svg><span><small>即将推出</small>Google Play</span></a>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="row">
+      <span>© 2026 BitSpire GmbH</span>
+      <span><a href="privacy.html">隐私</a> · <a href="support.html">帮助</a> · <a href="legal.html">法律声明</a></span>
+      <label class="langs"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.3" aria-hidden="true"><circle cx="8" cy="8" r="6.5"/><path d="M1.5 8h13M8 1.5c-2.2 2-2.2 11.5 0 13M8 1.5c2.2 2 2.2 11.5 0 13"/></svg><select aria-label="Language" onchange="try{localStorage.setItem('lang',this.options[this.selectedIndex].lang)}catch(e){}location.href=this.value"><option value="../" lang="en">English</option><option value="../de/" lang="de">Deutsch</option><option value="../fr/" lang="fr">Français</option><option value="../it/" lang="it">Italiano</option><option value="../es/" lang="es">Español</option><option value="../ja/" lang="ja">日本語</option><option value="./" lang="zh-Hans" selected>简体中文</option></select></label>
+    </div>
+    <details>
+      <summary>致谢</summary>
+      <p>3D 模型与音效来自 Kenney（kenney.nl），CC0 1.0。音乐来自 FreePD.com，作者 Kevin MacLeod 和 Bryan Teoh，CC0 1.0。字体：Inter（Rasmus Andersson）和 Outfit（Rodrigo Fuenzalida），SIL OFL 1.1。Material Symbols 来自 Google，Apache 2.0。基于 Three.js、Capacitor 和 Vite 构建（MIT）。</p>
+    </details>
+  </div>
+</footer>
+
+<script>
+const nav = document.querySelector('nav');
+addEventListener('scroll', () => nav.classList.toggle('solid', scrollY > 40), { passive: true });
+const region = navigator.language.split('-')[1]?.toUpperCase();
+const local = region === 'CH' ? 'CHF 5.00' : region === 'US' ? '$4.99' : ['AT', 'BE', 'DE', 'ES', 'FR', 'IE', 'IT', 'NL', 'PT'].includes(region) ? '€4.99' : '';
+if (local) document.getElementById('price').textContent = local;
+// Posters load near the viewport; videos too unless reduced motion / data saver, and pause off-screen.
+const still = matchMedia('(prefers-reduced-motion: reduce)').matches || navigator.connection?.saveData;
+const hd = !/2g/.test(navigator.connection?.effectiveType || '');
+const io = new IntersectionObserver((es) => es.forEach(({ target: v, isIntersecting }) => {
+  if (!isIntersecting) return v.pause();
+  if (v.dataset.poster) v.poster = v.dataset.poster;
+  if (still) return;
+  if (!v.src) {
+    const ext = 'webm' in v.dataset && v.canPlayType('video/webm; codecs="av01.0.08M.08"') ? '.webm' : '.mp4';
+    v.src = (v.dataset.hd && hd && matchMedia('(min-width: 1000px)').matches ? v.dataset.hd : v.dataset.src) + ext;
+  }
+  v.play().catch(() => {});
+}), { rootMargin: '300px' });
+document.querySelectorAll('video[data-src]').forEach((v) => io.observe(v));
+</script>
+</body>
+</html>
