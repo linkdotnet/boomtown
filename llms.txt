@@ -1,0 +1,14 @@
+# Boomtown: City Builder
+
+> Boomtown is a one-time-purchase city builder for iPhone, iPad and Android by BitSpire GmbH. It plays fully offline, with no ads, no in-app purchases and no tracking. Price: $4.99 (USD), €4.99 (EUR), CHF 5.00 (CHF).
+
+## Docs
+
+- [Boomtown fact sheet](https://boomtown.info/index.md): what the game is, platforms, price, features, modes, maps, progression, accessibility, privacy and FAQ
+- [Support](https://boomtown.info/support.html): help, bug reports and contact
+- [Privacy policy](https://boomtown.info/privacy.html): what data is and is not collected
+- [Legal notice](https://boomtown.info/legal.html): publisher details
+
+## Optional
+
+- [Home page](https://boomtown.info/): overview with screenshots and feature highlights

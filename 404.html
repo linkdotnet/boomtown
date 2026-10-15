@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Page not found · Boomtown</title>
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#0d131c">
+<link rel="icon" href="/favicon-48.png" sizes="48x48" type="image/png">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="stylesheet" href="/style.css">
+<style>
+.nf { min-height: 100svh; display: grid; place-items: center; padding: 96px var(--pad) 48px; background: linear-gradient(180deg, rgba(13, 19, 28, .55), rgba(13, 19, 28, .88) 70%, var(--bg)), url(/media/g6.webp) center / cover; }
+.nf .card { width: min(100%, 560px); padding: clamp(24px, 5vw, 40px); border-radius: 24px; background: var(--glass); border: 1px solid rgba(255, 255, 255, .12); box-shadow: 0 30px 80px rgba(0, 0, 0, .5); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); text-align: center; }
+.nf .code { font: 800 clamp(88px, 22vw, 150px)/.9 Outfit, system-ui, sans-serif; letter-spacing: .04em; background: var(--sky); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.nf svg.road { width: 100%; height: auto; margin: 14px 0 22px; }
+.nf h1 { font-size: clamp(28px, 6vw, 40px); font-weight: 800; }
+.nf .lead { color: #cfd9e6; margin: 10px 0 24px; }
+.lot { text-align: left; padding: 16px 18px; border-radius: 16px; background: var(--bg2); border: 1px solid var(--line); border-top: 3px solid var(--traffic); }
+.lot header { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+.lot b { font: 800 18px Outfit, system-ui, sans-serif; }
+.lot .pill { font: 700 12px Outfit, system-ui, sans-serif; letter-spacing: .1em; text-transform: uppercase; color: var(--traffic); background: rgba(248, 113, 113, .14); padding: 3px 10px; border-radius: 999px; white-space: nowrap; }
+.lot p { margin: 10px 0 6px; color: var(--muted); font-size: 14px; }
+.lot ul { margin: 0; padding: 0; list-style: none; font-size: 15px; }
+.lot li { display: flex; gap: 10px; margin: 5px 0; }
+.lot li::before { content: '✕'; color: var(--traffic); font-weight: 700; }
+.nf .stores { justify-content: center; margin-top: 26px; }
+.lamp { animation: blink 1.2s steps(2, jump-none) infinite; }
+@keyframes blink { 50% { opacity: .15; } }
+@media (prefers-reduced-motion: reduce) { .lamp { animation: none; } }
+</style>
+</head>
+<body>
+<nav class="solid">
+  <a class="brand home" href="/"><img src="/media/icon.webp" alt="" width="34" height="34">BOOMTOWN</a>
+  <div class="links"><a class="home" href="/" data-t="home">Back to town</a><a class="support" href="/support.html" data-t="support">Support</a></div>
+</nav>
+<main class="nf">
+  <div class="card">
+    <div class="code" aria-hidden="true">404</div>
+    <svg class="road" viewBox="0 0 480 90" aria-hidden="true">
+      <rect x="0" y="0" width="480" height="90" rx="14" fill="#4f8a4a"/>
+      <circle cx="420" cy="22" r="10" fill="#2f6e3b"/><circle cx="436" cy="30" r="8" fill="#3c7f45"/><circle cx="60" cy="72" r="9" fill="#2f6e3b"/>
+      <rect x="0" y="30" width="330" height="34" fill="#5b6472"/>
+      <path d="M8 47h320" stroke="#eef3f9" stroke-width="3" stroke-dasharray="16 14" opacity=".7"/>
+      <path d="M330 26v42" stroke="#0d131c" stroke-width="3" opacity=".35"/>
+      <rect x="338" y="34" width="10" height="34" fill="#2b2f38"/><rect x="398" y="34" width="10" height="34" fill="#2b2f38"/>
+      <rect x="332" y="38" width="82" height="16" rx="3" fill="#eef3f9"/>
+      <path d="M340 38h12l-8 16h-12zM364 38h12l-8 16h-12zM388 38h12l-8 16h-12zM412 38h2v16h-10z" fill="#f87171"/>
+      <rect x="350" y="26" width="6" height="12" fill="#2b2f38"/><circle class="lamp" cx="353" cy="24" r="6" fill="#ffd166"/>
+      <rect x="394" y="26" width="6" height="12" fill="#2b2f38"/><circle class="lamp" cx="397" cy="24" r="6" fill="#ffd166" style="animation-delay:.6s"/>
+    </svg>
+    <h1 data-t="title">This road leads nowhere</h1>
+    <p class="lead" data-t="lead">The page you're looking for was bulldozed, moved or never built.</p>
+    <div class="lot">
+      <header><b data-t="lot">Lot 404</b><span class="pill" data-t="status">Not growing</span></header>
+      <p data-t="why">Why isn't it growing?</p>
+      <ul><li data-t="r1">No road access</li><li data-t="r2">Never zoned</li><li data-t="r3">0 residents · 0 jobs · 0 visitors</li></ul>
+    </div>
+    <div class="stores"><a class="btn go home" href="/" data-t="home">Back to town</a><a class="btn support" href="/support.html" data-t="support">Support</a></div>
+  </div>
+</main>
+<script>
+// One 404 serves every path, so the language comes from the URL, then the saved choice, then the browser.
+const T = {
+  de: { doc: 'Seite nicht gefunden', title: 'Diese Straße führt ins Nichts', lead: 'Die gesuchte Seite wurde abgerissen, verlegt oder nie gebaut.', lot: 'Grundstück 404', status: 'Wächst nicht', why: 'Warum wächst es nicht?', r1: 'Kein Straßenanschluss', r2: 'Nie als Zone ausgewiesen', r3: '0 Einwohner · 0 Jobs · 0 Besucher', home: 'Zurück in die Stadt', support: 'Support' },
+  fr: { doc: 'Page introuvable', title: 'Cette route ne mène nulle part', lead: 'La page que vous cherchez a été démolie, déplacée ou jamais construite.', lot: 'Parcelle 404', status: 'Ne se développe pas', why: 'Pourquoi ne se développe-t-elle pas ?', r1: 'Aucun accès routier', r2: 'Jamais zonée', r3: '0 habitant · 0 emploi · 0 visiteur', home: 'Retour en ville', support: 'Assistance' },
+  it: { doc: 'Pagina non trovata', title: 'Questa strada non porta da nessuna parte', lead: 'La pagina che cerchi è stata demolita, spostata o mai costruita.', lot: 'Lotto 404', status: 'Non cresce', why: 'Perché non cresce?', r1: 'Nessun accesso stradale', r2: 'Mai zonizzato', r3: '0 residenti · 0 posti di lavoro · 0 visitatori', home: 'Torna in città', support: 'Supporto' },
+  es: { doc: 'Página no encontrada', title: 'Esta calle no lleva a ninguna parte', lead: 'La página que buscas fue demolida, trasladada o nunca se construyó.', lot: 'Parcela 404', status: 'No crece', why: '¿Por qué no crece?', r1: 'Sin acceso por carretera', r2: 'Nunca zonificada', r3: '0 residentes · 0 empleos · 0 visitantes', home: 'Volver a la ciudad', support: 'Soporte' },
+  ja: { doc: 'ページが見つかりません', title: 'この道は行き止まりです', lead: 'お探しのページは取り壊されたか、移転したか、建設されませんでした。', lot: '区画 404', status: '発展していません', why: 'なぜ発展しないの？', r1: '道路に接続されていない', r2: '区画指定されていない', r3: '住民0人・仕事0件・観光客0人', home: '街に戻る', support: 'サポート' },
+  'zh-Hans': { doc: '页面未找到', title: '这条路通向虚无', lead: '你要找的页面已被拆除、迁走或从未建成。', lot: '地块 404', status: '没有发展', why: '为什么没有发展？', r1: '没有道路连接', r2: '从未划区', r3: '0 居民 · 0 工作岗位 · 0 游客', home: '返回城市', support: '支持' },
+};
+const pick = (l) => (/^zh/i.test(l || '') ? 'zh-Hans' : Object.keys(T).find((k) => k === (l || '').slice(0, 2).toLowerCase()));
+let saved = null;
+try { saved = localStorage.getItem('lang'); } catch (e) {}
+const seg = location.pathname.split('/')[1];
+const lang = T[seg] ? seg : saved === 'en' ? null : pick(saved) || navigator.languages.map(pick).find(Boolean);
+if (lang) {
+  const t = T[lang];
+  document.documentElement.lang = lang;
+  document.title = `${t.doc} · Boomtown`;
+  document.querySelectorAll('[data-t]').forEach((el) => (el.textContent = t[el.dataset.t]));
+  document.querySelectorAll('a.home').forEach((a) => (a.href = `/${lang}/`));
+  document.querySelectorAll('a.support').forEach((a) => (a.href = `/${lang}/support.html`));
+}
+</script>
+</body>
+</html>

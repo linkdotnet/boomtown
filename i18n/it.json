@@ -2,6 +2,8 @@
   "Boomtown: City Builder for iPhone, iPad &amp; Android": "Boomtown: gioco di costruzione di città per iPhone, iPad e Android",
   "Build a living city. Zone neighbourhoods, raise generations of citizens, welcome tourists and keep the lights on through heat waves and cold snaps. No ads, no in-app purchases, fully offline.": "Gioco di costruzione di città: costruisci una città viva. Zona i quartieri, cresci generazioni di cittadini, accogli i turisti e tieni accese le luci tra ondate di calore e gelate. Niente pubblicità, niente acquisti in-app, completamente offline.",
   "Boomtown: City Builder": "Boomtown: gioco di costruzione di città",
+  "City Builder": "Gioco di costruzione di città",
+  "City Hall People tab with age pyramid, life expectancy and births and deaths": "Municipio, scheda Persone: piramide delle età, speranza di vita, nascite e decessi",
   "Turn a single dusty road into a thriving metropolis. A relaxing but deep city builder for iPhone, iPad and Android.": "Trasforma una strada polverosa in una metropoli fiorente. Un city builder rilassante ma profondo per iPhone, iPad e Android.",
   "Features": "Funzioni",
   "Gallery": "Galleria",
@@ -125,7 +127,6 @@
   "17 technologies": "17 tecnologie",
   "Plus 5 grand projects, from the World Expo to the Space Center.": "Più 5 grandi progetti, dall'Expo mondiale al Centro spaziale.",
   "Your town is waiting": "La tua città ti aspetta",
-  "Coming to the App Store and Google Play.": "In arrivo su App Store e Google Play.",
   "· one-time purchase · no ads, no in-app purchases": "· acquisto una tantum · niente pubblicità, niente acquisti in-app",
   "Coming soon": "In arrivo",
   "Home": "Home",
@@ -137,12 +138,10 @@
   "Privacy Policy": "Informativa sulla privacy",
   "Boomtown does not collect, store or share any personal data.": "Boomtown non raccoglie, conserva né condivide alcun dato personale.",
   "Boomtown does not collect, store or share any personal data. Saves stay on your device.": "Boomtown non raccoglie, conserva né condivide alcun dato personale. I salvataggi restano sul Suo dispositivo.",
-  "Last updated: October 8, 2026": "Ultimo aggiornamento: 8 ottobre 2026",
   "Who is responsible": "Responsabile",
   "Switzerland": "Svizzera",
   "See the <a href=\"legal.html\">legal notice</a> for full company details.": "Tutti i dati dell'azienda sono disponibili nelle <a href=\"legal.html\">note legali</a>.",
   "What the game stores": "Cosa salva il gioco",
-  "Your cities and settings are saved locally on your device. On iPhone and iPad, saves can sync between your own devices through your personal iCloud account (iCloud key-value storage). This data goes directly between Apple's servers and your devices; we never see it.": "Le Sue città e impostazioni sono salvate localmente sul Suo dispositivo. Su iPhone e iPad, i salvataggi possono sincronizzarsi tra i Suoi dispositivi tramite il Suo account iCloud personale (archiviazione chiave-valore iCloud). Questi dati passano direttamente tra i server di Apple e i Suoi dispositivi; noi non li vediamo mai.",
   "What the game does not do": "Cosa il gioco non fa",
   "No accounts, no analytics, no advertising, no tracking and no third-party SDKs that collect data. Boomtown plays fully offline and makes no network requests of its own.": "Nessun account, nessuna analisi, nessuna pubblicità, nessun tracciamento e nessun SDK di terze parti che raccolga dati. Boomtown funziona completamente offline e non effettua richieste di rete.",
   "This website": "Questo sito",
@@ -193,5 +192,10 @@
     "Gioco di costruzione di città",
     "Simulazione",
     "Strategia"
-  ]
+  ],
+  "Get it on": "Disponibile su",
+  "Out now on Google Play. Coming soon to the App Store.": "Disponibile su Google Play. Presto anche sull'App Store.",
+  "Last updated: October 15, 2026": "Ultimo aggiornamento: 15 ottobre 2026",
+  "Your cities and settings are saved locally on your device. On iPhone and iPad, saves can sync between your own devices through your personal iCloud account (iCloud key-value storage). On Android, your most recent saves can sync between your own devices through your personal Google Play Games account (Play Games saved games). This data goes directly between Apple's or Google's servers and your devices; we never see it.": "Le Sue città e impostazioni sono salvate localmente sul Suo dispositivo. Su iPhone e iPad, i salvataggi possono sincronizzarsi tra i Suoi dispositivi tramite il Suo account iCloud personale (archiviazione chiave-valore iCloud). Su Android, i salvataggi più recenti possono sincronizzarsi tra i Suoi dispositivi tramite il Suo account personale Google Play Giochi (partite salvate di Play Giochi). Questi dati passano direttamente tra i server di Apple o di Google e i Suoi dispositivi; noi non li vediamo mai.",
+  "On Android your most recent saves sync the same way through Google Play Games when you are signed in with your Google account.": "Su Android i salvataggi più recenti si sincronizzano allo stesso modo tramite Google Play Giochi quando hai effettuato l’accesso con il tuo account Google."
 }

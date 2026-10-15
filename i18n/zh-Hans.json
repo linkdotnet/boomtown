@@ -2,6 +2,8 @@
   "Boomtown: City Builder for iPhone, iPad &amp; Android": "Boomtown：适用于 iPhone、iPad 和 Android 的城市建造模拟游戏",
   "Build a living city. Zone neighbourhoods, raise generations of citizens, welcome tourists and keep the lights on through heat waves and cold snaps. No ads, no in-app purchases, fully offline.": "城市建造模拟游戏。建造一座有生命的城市。划分街区，培育几代市民，迎接游客，并在热浪和寒潮中保持城市供电。无广告、无应用内购买，完全离线。",
   "Boomtown: City Builder": "Boomtown：城市建造模拟游戏",
+  "City Builder": "城市建造模拟游戏",
+  "City Hall People tab with age pyramid, life expectancy and births and deaths": "市政厅“居民”标签页：人口金字塔、预期寿命、出生与死亡",
   "Turn a single dusty road into a thriving metropolis. A relaxing but deep city builder for iPhone, iPad and Android.": "把一条尘土飞扬的小路变成繁华的大都市。一款轻松却有深度的城市建造游戏，支持 iPhone、iPad 和 Android。",
   "Features": "功能",
   "Gallery": "图库",
@@ -125,7 +127,6 @@
   "17 technologies": "17 项科技",
   "Plus 5 grand projects, from the World Expo to the Space Center.": "另有 5 项大型工程，从世界博览会到航天中心。",
   "Your town is waiting": "你的城市正在等你",
-  "Coming to the App Store and Google Play.": "即将登陆 App Store 和 Google Play。",
   "· one-time purchase · no ads, no in-app purchases": "· 一次性购买 · 无广告、无应用内购买",
   "Coming soon": "即将推出",
   "Home": "首页",
@@ -137,12 +138,10 @@
   "Privacy Policy": "隐私政策",
   "Boomtown does not collect, store or share any personal data.": "Boomtown 不收集、不存储、也不分享任何个人数据。",
   "Boomtown does not collect, store or share any personal data. Saves stay on your device.": "Boomtown 不收集、不存储、也不分享任何个人数据。存档只保存在您的设备上。",
-  "Last updated: October 8, 2026": "最后更新：2026 年 10 月 8 日",
   "Who is responsible": "责任主体",
   "Switzerland": "瑞士",
   "See the <a href=\"legal.html\">legal notice</a> for full company details.": "完整的公司信息请参阅<a href=\"legal.html\">法律声明</a>。",
   "What the game stores": "游戏保存的内容",
-  "Your cities and settings are saved locally on your device. On iPhone and iPad, saves can sync between your own devices through your personal iCloud account (iCloud key-value storage). This data goes directly between Apple's servers and your devices; we never see it.": "您的城市和设置保存在本地设备上。在 iPhone 和 iPad 上，存档可以通过您个人的 iCloud 账户（iCloud 键值存储）在您自己的设备之间同步。这些数据直接在 Apple 的服务器和您的设备之间传输，我们从不会看到。",
   "What the game does not do": "游戏不做什么",
   "No accounts, no analytics, no advertising, no tracking and no third-party SDKs that collect data. Boomtown plays fully offline and makes no network requests of its own.": "没有账户、没有分析工具、没有广告、没有追踪，也没有收集数据的第三方 SDK。Boomtown 完全离线运行，自身不发出任何网络请求。",
   "This website": "本网站",
@@ -193,5 +192,10 @@
     "城市建造模拟",
     "模拟",
     "策略"
-  ]
+  ],
+  "Get it on": "立即获取",
+  "Out now on Google Play. Coming soon to the App Store.": "现已登陆 Google Play，App Store 版即将推出。",
+  "Last updated: October 15, 2026": "最后更新：2026 年 10 月 15 日",
+  "Your cities and settings are saved locally on your device. On iPhone and iPad, saves can sync between your own devices through your personal iCloud account (iCloud key-value storage). On Android, your most recent saves can sync between your own devices through your personal Google Play Games account (Play Games saved games). This data goes directly between Apple's or Google's servers and your devices; we never see it.": "您的城市和设置保存在本地设备上。在 iPhone 和 iPad 上，存档可以通过您个人的 iCloud 账户（iCloud 键值存储）在您自己的设备之间同步。在 Android 上，最近的存档可以通过您个人的 Google Play 游戏账户（Play 游戏存档）在您自己的设备之间同步。这些数据直接在 Apple 或 Google 的服务器和您的设备之间传输，我们从不会看到。",
+  "On Android your most recent saves sync the same way through Google Play Games when you are signed in with your Google account.": "在 Android 上，只要您使用 Google 账户登录，最近的存档也会以同样的方式通过 Google Play 游戏同步。"
 }

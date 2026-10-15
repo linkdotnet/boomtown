@@ -8,6 +8,7 @@ const langs = ['de', 'fr', 'it', 'es', 'ja', 'zh-Hans'];
 const all = ['en', ...langs];
 const names = { en: 'English', de: 'Deutsch', fr: 'Français', it: 'Italiano', es: 'Español', ja: '日本語', 'zh-Hans': '简体中文' };
 const site = 'https://boomtown.info';
+const play = 'https://play.google.com/store/apps/details?id=ch.bitspire.boomtown';
 const read = (p) => readFileSync(join(root, p), 'utf8');
 const dicts = Object.fromEntries(langs.map((l) => [l, JSON.parse(read(`i18n/${l}.json`))]));
 const entries = (d) => Object.entries(d).filter(([k]) => !k.startsWith('@')).sort(([a], [b]) => b.length - a.length);
@@ -22,7 +23,18 @@ if (missing.length) {
 
 const dirOf = (l) => (l === 'en' ? '' : `${l}/`);
 const url = (l, page) => `${site}/${dirOf(l)}${page === 'index.html' ? '' : page}`;
-const hreflang = (page) => [...all.map((l) => `<link rel="alternate" hreflang="${l}" href="${url(l, page)}">`), `<link rel="alternate" hreflang="x-default" href="${url('en', page)}">`].join('\n');
+const ogLocales = { en: 'en_GB', de: 'de_DE', fr: 'fr_FR', it: 'it_IT', es: 'es_ES', ja: 'ja_JP', 'zh-Hans': 'zh_CN' };
+const head = (lang, page) => [
+  `<link rel="canonical" href="${url(lang, page)}">`,
+  ...all.map((l) => `<link rel="alternate" hreflang="${l}" href="${url(l, page)}">`),
+  `<link rel="alternate" hreflang="x-default" href="${url('en', page)}">`,
+  ...(page === 'index.html' ? [
+    `<link rel="alternate" type="text/markdown" href="${site}/index.md" title="Boomtown fact sheet (Markdown)">`,
+    `<meta property="og:locale" content="${ogLocales[lang]}">`,
+    ...all.filter((l) => l !== lang).map((l) => `<meta property="og:locale:alternate" content="${ogLocales[l]}">`),
+    ld(lang),
+  ] : []),
+].join('\n');
 
 const switcher = (lang, page) => {
   const options = all.map((l) => {
@@ -40,26 +52,28 @@ const rebase = (html) => html.replace(/\b(src|href|srcset|imagesrcset|data-src|d
   return `${attr}="${v}"`;
 });
 
-const ld = (lang, d) => {
-  const org = { '@type': 'Organization', name: 'BitSpire GmbH', url: 'https://bitspire.ch' };
-  const data = { '@context': 'https://schema.org', '@type': 'VideoGame', name: 'Boomtown', url: url(lang, 'index.html'), image: `${site}/media/og.jpg`, description: d[meta], inLanguage: lang, genre: d['@genre'], applicationCategory: 'GameApplication', gamePlatform: ['iOS', 'iPadOS', 'Android'], operatingSystem: ['iOS', 'iPadOS', 'Android'], author: org, publisher: org, offers: { '@type': 'Offer', price: '4.99', priceCurrency: 'USD' } };
-  return `<script type="application/ld+json">${JSON.stringify(data)}</script>`;
-};
+function ld(lang) {
+  const d = dicts[lang];
+  const org = { '@type': 'Organization', '@id': `${site}/#org`, name: 'BitSpire GmbH', url: 'https://bitspire.ch', email: 'apps@bitspire.ch' };
+  const game = { '@type': 'VideoGame', '@id': `${site}/#game`, name: 'Boomtown: City Builder', alternateName: 'Boomtown', url: url(lang, 'index.html'), image: `${site}/media/og.jpg`, screenshot: ['g1', 'g2', 'g3', 'g4', 'g5', 'g6', 'g7', 'g8'].map((g) => `${site}/media/${g}.webp`), description: d ? d[meta] : meta, inLanguage: lang, genre: d ? d['@genre'] : ['City builder', 'Simulation', 'Strategy'], applicationCategory: 'GameApplication', applicationSubCategory: 'Simulation', gamePlatform: ['iOS', 'iPadOS', 'Android'], operatingSystem: 'iOS 15+, iPadOS 15+, Android 7.0+', playMode: 'SinglePlayer', isAccessibleForFree: false, author: { '@id': org['@id'] }, publisher: org, offers: [['4.99', 'USD'], ['4.99', 'EUR'], ['5.00', 'CHF']].map(([price, priceCurrency]) => ({ '@type': 'Offer', price, priceCurrency, url: play })) };
+  const website = { '@type': 'WebSite', '@id': `${site}/#website`, name: 'Boomtown', url: `${site}/`, inLanguage: all, publisher: { '@id': org['@id'] } };
+  return `<script type="application/ld+json">${JSON.stringify({ '@context': 'https://schema.org', '@graph': [website, game] })}</script>`;
+}
 
 const withBlocks = (html, lang, page) => html
-  .replace(/<link rel="alternate"[^>]*>\n/g, '')
-  .replace('</head>', () => `${hreflang(page)}\n</head>`)
+  .replace(/<link rel="(canonical|alternate)"[^>]*>\n|<meta property="og:locale(:alternate)?"[^>]*>\n|<script type="application\/ld\+json">[\s\S]*?<\/script>\n/g, '')
+  .replace('</head>', () => `${head(lang, page)}\n</head>`)
   .replace(/<label class="langs"[\s\S]*?<\/label>/g, () => switcher(lang, page));
 
 const build = (lang, page) => {
   const d = dicts[lang];
   let html = read(page).replace(/<script id="root-redirect">[\s\S]*?<\/script>\n/, '');
-  for (const [k, v] of entries(d)) html = html.replaceAll(k, () => v);
+  // One pass, longest key first: sequential replaceAll re-matched short keys inside earlier translations ("Supporto" → "Supportoo").
+  const keys = new RegExp(entries(d).map(([k]) => k.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')).join('|'), 'g');
+  html = html.replace(keys, (k) => d[k]);
   html = rebase(html)
     .replace('<html lang="en">', `<html lang="${lang}">`)
-    .replace(/(<link rel="canonical" href=")[^"]*"/, (m, p) => `${p}${url(lang, page)}"`)
     .replace(/(<meta property="og:url" content=")[^"]*"/, (m, p) => `${p}${url(lang, page)}"`);
-  if (page === 'index.html') html = html.replace(/<script type="application\/ld\+json">[\s\S]*?<\/script>/, () => ld(lang, d));
   if (page === 'privacy.html' || page === 'legal.html') html = html.replace('<main class="page">', (m) => `${m}\n  <p class="muted">${d['@note'].replaceAll('{en}', `../${page}`)}</p>`);
   return withBlocks(html, lang, page);
 };

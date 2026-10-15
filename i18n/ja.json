@@ -2,6 +2,8 @@
   "Boomtown: City Builder for iPhone, iPad &amp; Android": "Boomtown：iPhone・iPad・Android対応の街づくりシミュレーション",
   "Build a living city. Zone neighbourhoods, raise generations of citizens, welcome tourists and keep the lights on through heat waves and cold snaps. No ads, no in-app purchases, fully offline.": "街づくりシミュレーション。生きた街を作りましょう。地区を区画し、何世代にもわたる市民を育て、観光客をお迎えします。猛暑や寒波の中でも明かりを絶やしません。広告なし、アプリ内課金なし、完全オフラインでプレイできます。",
   "Boomtown: City Builder": "Boomtown：街づくりシミュレーション",
+  "City Builder": "街づくりシミュレーション",
+  "City Hall People tab with age pyramid, life expectancy and births and deaths": "市役所の「住民」タブ：人口ピラミッド、平均寿命、出生数と死亡数",
   "Turn a single dusty road into a thriving metropolis. A relaxing but deep city builder for iPhone, iPad and Android.": "ひとすじの土ぼこりの道を、活気あふれる大都市へ。くつろげて奥深いシティビルダーです。iPhone、iPad、Androidに対応。",
   "Features": "機能",
   "Gallery": "ギャラリー",
@@ -125,7 +127,6 @@
   "17 technologies": "17の技術",
   "Plus 5 grand projects, from the World Expo to the Space Center.": "さらに5つの大型プロジェクト（万国博覧会から宇宙センターまで）。",
   "Your town is waiting": "街があなたを待っています",
-  "Coming to the App Store and Google Play.": "App StoreとGoogle Playで近日配信予定です。",
   "· one-time purchase · no ads, no in-app purchases": "· 買い切り · 広告なし・アプリ内課金なし",
   "Coming soon": "近日公開",
   "Home": "ホーム",
@@ -137,12 +138,10 @@
   "Privacy Policy": "プライバシーポリシー",
   "Boomtown does not collect, store or share any personal data.": "Boomtownは個人データを収集、保存、共有しません。",
   "Boomtown does not collect, store or share any personal data. Saves stay on your device.": "Boomtownは個人データを収集、保存、共有しません。セーブデータはお使いの端末内に残ります。",
-  "Last updated: October 8, 2026": "最終更新：2026年10月8日",
   "Who is responsible": "責任者",
   "Switzerland": "スイス",
   "See the <a href=\"legal.html\">legal notice</a> for full company details.": "会社情報の詳細は<a href=\"legal.html\">法的情報</a>をご覧ください。",
   "What the game stores": "ゲームが保存するデータ",
-  "Your cities and settings are saved locally on your device. On iPhone and iPad, saves can sync between your own devices through your personal iCloud account (iCloud key-value storage). This data goes directly between Apple's servers and your devices; we never see it.": "都市と設定はお使いの端末内に保存されます。iPhoneとiPadでは、ご自身のiCloudアカウント（iCloudのキーバリューストレージ）を通じて、お持ちの端末間でセーブデータを同期できます。このデータはAppleのサーバーと端末の間で直接やり取りされ、当社が閲覧することはありません。",
   "What the game does not do": "ゲームが行わないこと",
   "No accounts, no analytics, no advertising, no tracking and no third-party SDKs that collect data. Boomtown plays fully offline and makes no network requests of its own.": "アカウント、アナリティクス、広告、トラッキング、データを収集するサードパーティ製SDKは一切ありません。Boomtownは完全オフラインで動作し、独自のネットワーク通信も行いません。",
   "This website": "このウェブサイト",
@@ -193,5 +192,10 @@
     "街づくりシミュレーション",
     "シミュレーション",
     "ストラテジー"
-  ]
+  ],
+  "Get it on": "入手先",
+  "Out now on Google Play. Coming soon to the App Store.": "Google Playで配信中。App Storeにも近日登場。",
+  "Last updated: October 15, 2026": "最終更新：2026年10月15日",
+  "Your cities and settings are saved locally on your device. On iPhone and iPad, saves can sync between your own devices through your personal iCloud account (iCloud key-value storage). On Android, your most recent saves can sync between your own devices through your personal Google Play Games account (Play Games saved games). This data goes directly between Apple's or Google's servers and your devices; we never see it.": "都市と設定はお使いの端末内に保存されます。iPhoneとiPadでは、ご自身のiCloudアカウント（iCloudのキーバリューストレージ）を通じて、お持ちの端末間でセーブデータを同期できます。Androidでは、ご自身のGoogle Play Gamesアカウント（Play Gamesの保存済みゲーム）を通じて、お持ちの端末間で直近のセーブデータを同期できます。このデータはAppleまたはGoogleのサーバーと端末の間で直接やり取りされ、当社が閲覧することはありません。",
+  "On Android your most recent saves sync the same way through Google Play Games when you are signed in with your Google account.": "Androidでは、Googleアカウントでログインしていれば、直近のセーブデータが同じようにGoogle Play Gamesを通じて同期されます。"
 }
