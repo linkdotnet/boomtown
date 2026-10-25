@@ -49,7 +49,8 @@ done
 cwebp -quiet -q 78 -crop 240 110 1440 810 -resize 1280 0 raw/people/start.jpg -o "$OUT/people.webp"
 cwebp -quiet -q 78 -crop 240 110 1440 810 -resize 640 0 raw/people/start.jpg -o "$OUT/people-640.webp"
 cwebp -quiet -q 75 -resize 600 0 "$GAME"/store/screenshots/ipad-13-1.jpg -o "$OUT/ipad.webp"
-cwebp -quiet -q 75 -resize 1200 0 "$GAME"/store/screenshots/iphone-6.9-1.jpg -o "$OUT/iphone.webp"
+cwebp -quiet -q 75 -resize 1200 0 "$GAME"/store/screenshots/iphone-6.3-1.jpg -o "$OUT/iphone.webp"
+cwebp -quiet -q 75 -alpha_q 90 -resize 1100 0 "$GAME"/store/screenshots/framed/iphone-duo-inner-1.png -o "$OUT/duo.webp"
 
 # Hero chip thumbnails: square crops (size x y) of the stills, shown at 32 px.
 thumb() { ff -i "$1" -vf "crop=$2:$2:$3:$4,scale=96:96" raw/t$5.png && cwebp -quiet -q 80 raw/t$5.png -o "$OUT/t$5.webp"; }

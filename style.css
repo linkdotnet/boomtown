@@ -85,11 +85,12 @@ h2 { font-size: clamp(32px, 5vw, 54px); font-weight: 800; }
 .more p { margin: 6px 0 0; color: var(--muted); font-size: 15px; }
 
 /* Devices */
-.devices { display: flex; gap: clamp(16px, 3vw, 36px); align-items: center; justify-content: center; margin-top: 40px; }
+.devices { display: flex; flex-wrap: wrap; gap: clamp(16px, 3vw, 36px); align-items: center; justify-content: center; margin-top: 40px; }
 .devices img { border-radius: clamp(14px, 2.4vw, 32px); border: clamp(5px, .8vw, 10px) solid #05080c; box-shadow: 0 30px 70px rgba(0, 0, 0, .55), 0 0 0 1px rgba(255, 255, 255, .1); height: auto; }
 .devices .phone { width: min(62%, 720px); }
 .devices .tablet { width: min(26%, 290px); }
-@media (max-width: 640px) { .devices { flex-direction: column; } .devices .phone { width: 100%; } .devices .tablet { width: 60%; } }
+.devices .duo { width: min(70%, 560px); border: 0; border-radius: 0; box-shadow: none; filter: drop-shadow(0 30px 50px rgba(0, 0, 0, .55)); }
+@media (max-width: 640px) { .devices { flex-direction: column; } .devices .phone { width: 100%; } .devices .tablet { width: 60%; } .devices .duo { width: 100%; } }
 
 /* Gallery: horizontal scroll-snap strip */
 .gallery { display: grid; grid-auto-flow: column; grid-auto-columns: min(78vw, 560px); gap: 16px; overflow-x: auto; scroll-snap-type: x mandatory; padding: 8px var(--pad) 24px; scrollbar-width: thin; }
