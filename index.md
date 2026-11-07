@@ -16,7 +16,7 @@ Boomtown is a city builder for iPhone, iPad and Android, published by BitSpire G
 - Ads: none. In-app purchases: none. Tracking: none
 - Internet: not required. Plays fully offline
 - Orientation: landscape on iPhone and Android; iPad also plays in portrait
-- Availability: Google Play and App Store, coming soon
+- Availability: Google Play (https://play.google.com/store/apps/details?id=ch.bitspire.boomtown) and App Store (https://apps.apple.com/app/id6823166422)
 - App Store age rating: 4+
 - Website languages: English, Deutsch, Français, Italiano, Español, 日本語, 简体中文
 
@@ -135,7 +135,7 @@ iPhone and iPad with iOS 15 or later, and Android 7.0 (API 24) or later on phone
 
 ### Where can I download Boomtown?
 
-Boomtown is coming soon to Google Play and the App Store. Links will be listed on https://boomtown.info/.
+On Google Play (https://play.google.com/store/apps/details?id=ch.bitspire.boomtown) and the App Store (https://apps.apple.com/app/id6823166422).
 
 ### Does Boomtown have ads, in-app purchases or tracking?
 
