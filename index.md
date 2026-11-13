@@ -26,9 +26,23 @@ Boomtown is a city builder for iPhone, iPad and Android, published by BitSpire G
 
 - Residential, commercial and industrial zones in standard, suburban and old-town styles
 - Grow from hamlet to village, town, small city, city, metropolis, megalopolis and megacity
+- Merge a full 3×3 block of level-3 lots into a level-4 skyscraper
 - Curved roads, dirt tracks, avenues and pedestrian streets; bus, tram and train lines; airports
 - Every car picks its own route; jams form at rush hour; better roads or transit lines fix them
 - Car-free households walk or ride transit, so stops near homes and jobs matter
+
+### City life
+
+- Parks with ponds, fountains, paths and benches; plant trees and flower beds anywhere
+- Trees sway in the wind, washing flutters on sunny days, and cafés put out terraces in spring and summer
+- At night shop fronts stay lit, billboards glow and traffic lights cycle red, amber and green
+- Homes and shops that stand for years become heritage buildings with ivy and a plaque; they draw visitors and raise nearby land value
+
+### Public transport
+
+- Draw bus and tram lines by clicking along roads; stops are placed on the way
+- Metro lines dig tunnels under the city, with entrances on any sidewalk; trains run between stations
+- Car-free households walk or ride transit, and riders may change lines once
 
 ### Citizens and generations
 
@@ -92,6 +106,7 @@ For each new city you choose the city size, terrain (flat, gentle, varied or rug
 - Timed missions: 12 kinds of goal with cash rewards; they expire
 - Surprise news events
 - A short, skippable tutorial
+- Scenarios: three challenges modelled on real places (Freiburg, Letchworth and the Ruhr) with Bronze, Silver and Gold medals
 
 ## Controls and accessibility
 
@@ -159,4 +174,4 @@ It has a left-handed layout, a larger interface (UI size), colour-blind friendly
 
 ## Last updated
 
-2026-10-15
+2026-11-13

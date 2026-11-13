@@ -17,13 +17,14 @@ const [WIN_W, WIN_H] = TOUR ? [Math.max(...sizes.map((s) => s[0])), Math.max(...
 // store = ?store scene; drag = orbit px (sign = direction); zoom = wheel per step (negative = in);
 // setup = JS run before recording; ui = keep the game UI and take a still only; run = in-page promise that drives the camera instead of a drag, ms = its length.
 const SHOTS = [
-  { name: 'scene-1', store: 1, drag: 70, zoom: -0.6 },
+  { name: 'scene-1', store: 1, drag: 70, zoom: -0.6, setup: `dispatchEvent(new KeyboardEvent('keydown', { key: 'Escape' }))` }, // the open zones palette tints the terrain
   { name: 'scene-2', store: 2, drag: -60, zoom: -0.4 },
   { name: 'scene-3', store: 3, drag: 55, zoom: -0.3 },
   { name: 'scene-4', store: 4, drag: -45, zoom: 0 },
   { name: 'scene-5', store: 5, drag: 60, zoom: -0.5 },
   { name: 'grow', store: 'grow', run: 'storeGrow(24000)', ms: 24000 },
-  { name: 'people', store: 1, ui: true, setup: `document.querySelector('[data-open="stats"]').click(); document.querySelector('[data-tab="people"]').click()` },
+  // A few months at top speed so the growth chart has data (the showcase city starts with an empty history).
+  { name: 'people', store: 1, ui: true, setup: `new Promise((r) => { document.querySelector('#speed [data-s="4"]').click(); setTimeout(() => { document.querySelector('#speed [data-s="0"]').click(); document.querySelector('[data-open="stats"]').click(); document.querySelector('[data-tab="people"]').click(); r(); }, 45000); })` },
 ].filter((s) => process.argv.length < 4 || process.argv.slice(3).includes(s.name));
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 
@@ -41,7 +42,7 @@ ws.onmessage = (m) => {
   pending[d.id]?.(d.result); delete pending[d.id];
 };
 const send = (method, params = {}) => new Promise((r) => { pending[++id] = r; ws.send(JSON.stringify({ id, method, params })); });
-const evaluate = async (expression) => (await send('Runtime.evaluate', { expression, returnByValue: true })).result.value;
+const evaluate = async (expression) => (await send('Runtime.evaluate', { expression, returnByValue: true, awaitPromise: true })).result.value;
 const ready = async () => { for (let t = 0; t < 600; t++) { if (await evaluate('!!window.storeReady')) return; await sleep(250); } throw new Error('scene never became ready'); };
 const still = async (file) => writeFileSync(file, Buffer.from((await send('Page.captureScreenshot', { format: 'jpeg', quality: 92 })).data, 'base64'));
 const mouse = (type, x, y, extra = {}) => send('Input.dispatchMouseEvent', { type, x, y, ...extra });
