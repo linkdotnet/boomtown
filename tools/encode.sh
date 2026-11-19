@@ -36,20 +36,20 @@ for n in 1 2 3 4 5; do
   enc "f$n" 30 $(clip $n) -filter_complex "[0]fps=30,trim=3:7,setpts=PTS-STARTPTS,scale=640:-2,split[f][r];[r]reverse[b];[f][b]concat"
   ff -i "$OUT/f$n.mp4" -frames:v 1 raw/f$n.png && cwebp -quiet -q 70 raw/f$n.png -o "$OUT/f$n.webp"
 done
-# f6 city life (park pond, old town) and f7 transit (a tram at its stop) are 4 s stretches of the hero tour: tourclip <n> <first frame>.
+# f6 city life (the skyline turning from day to night) and f7 transit (a tram at its stop) are 4 s stretches of the hero tour: tourclip <n> <first frame>.
 tourclip() {
   enc "f$1" 30 -framerate 30 -start_number "$2" -i "$FRAMES/%05d.png" -filter_complex "[0]trim=end_frame=120,setpts=PTS-STARTPTS,scale=640:-2,split[f][r];[r]reverse[b];[f][b]concat"
   ff -i "$OUT/f$1.mp4" -frames:v 1 raw/f$1.png && cwebp -quiet -q 70 raw/f$1.png -o "$OUT/f$1.webp"
 }
-tourclip 6 560
-tourclip 7 440
+tourclip 6 1460
+tourclip 7 530
 
 # Gallery stills: 1280 + 640 WebP. g6–g8 are reel frames: the village, the grown town, the town at night; g9–g10 tour frames: the night skyline, the park.
 for t in 2 15.5 23.5; do ff -ss $t -i raw/grow.mp4 -frames:v 1 raw/grow-$t.png; done
 i=0
 # g9 night skyline and g10 park are hero tour frames.
-for f in 1860 600 510; do cp "$FRAMES/$(printf %05d "$f").png" raw/tour-$f.png; done
-for src in raw/scene-1/end.jpg raw/scene-2/start.jpg raw/scene-3/start.jpg raw/scene-4/end.jpg raw/scene-5/start.jpg raw/grow-2.png raw/grow-15.5.png raw/grow-23.5.png raw/tour-1860.png raw/tour-600.png; do
+for f in 1800 670 600; do cp "$FRAMES/$(printf %05d "$f").png" raw/tour-$f.png; done
+for src in raw/scene-1/end.jpg raw/scene-2/start.jpg raw/scene-3/start.jpg raw/scene-4/end.jpg raw/scene-5/start.jpg raw/grow-2.png raw/grow-15.5.png raw/grow-23.5.png raw/tour-1800.png raw/tour-670.png; do
   i=$((i + 1))
   cwebp -quiet -q 72 -resize 1280 0 "$src" -o "$OUT/g$i.webp"
   cwebp -quiet -q 72 -resize 640 0 "$src" -o "$OUT/g$i-640.webp"
@@ -65,8 +65,8 @@ cwebp -quiet -q 75 -alpha_q 90 -resize 1100 0 "$GAME"/store/screenshots/framed/i
 thumb() { ff -i "$1" -vf "crop=$2:$2:$3:$4,scale=96:96" raw/t$5.png && cwebp -quiet -q 80 raw/t$5.png -o "$OUT/t$5.webp"; }
 thumb raw/scene-1/start.jpg 380 700 300 1
 thumb raw/scene-2/start.jpg 380 300 330 2
-thumb raw/tour-600.png 300 640 780 3
-thumb raw/tour-510.png 260 1250 520 4
+thumb raw/tour-670.png 300 640 780 3
+thumb raw/tour-600.png 260 1250 520 4
 thumb raw/scene-5/start.jpg 300 1010 520 5
 thumb raw/people/start.jpg 330 520 560 6
 

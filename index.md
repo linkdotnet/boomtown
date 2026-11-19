@@ -36,6 +36,7 @@ Boomtown is a city builder for iPhone, iPad and Android, published by BitSpire G
 - Parks with ponds, fountains, paths and benches; plant trees and flower beds anywhere
 - Trees sway in the wind, washing flutters on sunny days, and cafés put out terraces in spring and summer
 - At night shop fronts stay lit, billboards glow and traffic lights cycle red, amber and green
+- Cows and sheep graze on the farms, chimneys smoke, and at dusk street lamps and headlights switch on
 - Homes and shops that stand for years become heritage buildings with ivy and a plaque; they draw visitors and raise nearby land value
 
 ### Public transport
