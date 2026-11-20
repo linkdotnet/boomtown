@@ -111,7 +111,7 @@ h2 { font-size: clamp(32px, 5vw, 54px); font-weight: 800; }
 .maps { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 320px), 1fr)); gap: 12px; margin-top: 36px; }
 .map { padding: 20px; border-radius: var(--r); background: var(--b), var(--sf); min-height: 150px; display: flex; flex-direction: column; justify-content: space-between; }
 .map b { font: 700 22px Outfit, system-ui, sans-serif; }
-.map span.e { font-size: 34px; }
+.map span.e svg { width: 40px; height: 40px; }
 .map .lvl { font: 600 12px Inter, system-ui, sans-serif; padding: 2px 9px; border-radius: 8px; width: fit-content; margin-top: 4px; }
 .lvl.easy { background: rgba(111, 227, 155, .18); color: #9ff0bd; } .lvl.normal { background: rgba(251, 191, 36, .18); color: #fde68a; } .lvl.hard { background: rgba(255, 138, 128, .2); color: #ffb4b4; }
 
